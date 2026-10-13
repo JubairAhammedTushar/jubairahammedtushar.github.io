@@ -139,10 +139,10 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
       <span class="tag">Nmap</span><span class="tag">Metasploit</span><span class="tag">Nessus</span><span class="tag">Burp Suite</span><span class="tag">Wifite / aircrack-ng</span><span class="tag">Maltego / OSINT</span><span class="tag">hashcat</span>
     </div></div>
     <div class="skill"><h3>Networking</h3><div class="tags">
-      <span class="tag">CCNA R&amp;S</span><span class="tag">OSPF / EIGRP</span><span class="tag">VLANs &amp; ACLs</span><span class="tag">NAT</span><span class="tag">iptables / nftables</span><span class="tag">Wireshark</span>
+      <span class="tag">CCNA R&amp;S</span><span class="tag">OSPF / EIGRP</span><span class="tag">VLANs &amp; ACLs</span><span class="tag">NAT</span><span class="tag">iptables / nftables</span><span class="tag">WireGuard</span><span class="tag">Wireshark</span>
     </div></div>
     <div class="skill"><h3>Systems, cloud &amp; code</h3><div class="tags">
-      <span class="tag">Kali Linux</span><span class="tag">Ubuntu Server</span><span class="tag">WireGuard / Xray</span><span class="tag">Docker</span><span class="tag">GCP / IAM</span><span class="tag">Python</span><span class="tag">React</span><span class="tag">Bash</span>
+      <span class="tag">Kali Linux</span><span class="tag">Ubuntu Server</span><span class="tag">Xray-core</span><span class="tag">Docker</span><span class="tag">GCP / IAM</span><span class="tag">Python</span><span class="tag">React</span><span class="tag">Bash</span>
     </div></div>
   </div>
 </div></section>
@@ -174,36 +174,27 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
           <li>A security review of my own early scripts flagged real hazards to fix in any future build — a self-signed Trojan cert with <code>allowInsecure=1</code>, plaintext secrets in backups, and management UIs that must never be exposed to the public internet.</li>
         </ul>
         <h4>Status &amp; honesty note</h4>
-        <p>Working self-built project on my own hardware. Throughput and multi-user capacity figures are not independently benchmarked, and I'd re-engineer the identified weaknesses before treating it as production-grade.</p>
+        <p>Working self-built project on my own hardware. Throughput and multi-user capacity figures are not independently benchmarked, and I'd re-engineer the identified weaknesses before treating it as production-grade — which is what the rebuild (next) addresses.</p>
       </div></details>
     </article>
 
     <article class="card">
-      <div class="top"><span class="idx">02</span><span class="status live">● write-up</span></div>
-      <h3>Network Reconnaissance with Nmap</h3>
-      <p>A full discovery-to-fingerprint workflow on my own network, with defensive takeaways.</p>
-      <div class="tags"><span class="tag">Nmap</span><span class="tag">Kali</span><span class="tag">Recon</span></div>
+      <div class="top"><span class="idx">02</span><span class="status lab">● release candidate</span></div>
+      <h3>JACG-2300 — Secure Gateway Rebuild</h3>
+      <p>An industry-grade re-engineering of the gateway, focused on privilege separation and safe, recoverable changes.</p>
+      <div class="tags"><span class="tag">Ubuntu Server</span><span class="tag">nftables</span><span class="tag">RBAC / MFA</span><span class="tag">WireGuard</span><span class="tag">CI / tests</span></div>
       <details class="writeup"><summary>Read the write-up</summary><div class="body">
         <h4>Objective</h4>
-        <p>Carry out the reconnaissance phases of a security assessment against my own home network, moving from "what hosts exist?" to "what is this host and what does it run?".</p>
-        <h4>Method</h4>
+        <p>Rebuild the gateway as a secure, maintainable multi-protocol system after the first version became hard to recover when changes went wrong — designing for least privilege and safe, reversible operations.</p>
+        <h4>Design</h4>
         <ul>
-          <li><b>Host discovery:</b> <code>nmap -sn 192.168.0.0/24</code> — a ping sweep with no port scan, mapping the live footprint quietly.</li>
-          <li><b>Service enumeration:</b> <code>nmap -sV</code> against a target host, exporting to XML.</li>
-          <li><b>OS detection:</b> <code>sudo nmap -O</code> for fingerprinting.</li>
-          <li><b>Aggressive pass:</b> <code>sudo nmap -A</code> combining version/OS detection, default NSE scripts and traceroute.</li>
+          <li><b>Privilege separation:</b> a root-only broker owns credentials and network changes; the HTTPS management dashboard runs unprivileged on loopback, reached over SSH.</li>
+          <li><b>Access control:</b> password + TOTP MFA, role-based access, short sessions and an audit trail.</li>
+          <li><b>Transactional changes:</b> validate → stage → syntax-test → journal → apply → functional-test → commit or roll back, so a failure never leaves a half-added account or a revoked account still connected.</li>
+          <li><b>Hardening:</b> nftables isolation, key-only SSH, Fail2ban, encrypted backups, BBR, service-recovery timers.</li>
         </ul>
-        <h4>Findings</h4>
-        <ul>
-          <li>Six live hosts, including the gateway and an Apple device exposing only ports <code>49152</code> and <code>62078</code> (the <code>iphone-sync</code> service gave the device type away before any OS scan).</li>
-          <li>OS detection returned slightly different guesses between the <code>-O</code> and <code>-A</code> runs — a genuine lesson in the limits of fingerprinting a hardened device with a small exposed surface.</li>
-        </ul>
-        <h4>Defensive takeaways</h4>
-        <ul>
-          <li>Minimise attack surface — every closed/filtered port is one less thing an attacker learns.</li>
-          <li>Reconnaissance is noisy: ping sweeps and sequential probes are detectable with IDS/IPS and firewall logging.</li>
-          <li>Segment the network so a single foothold reaches as little as possible.</li>
-        </ul>
+        <h4>Status &amp; honesty note</h4>
+        <p>An isolated release candidate with a local automated test suite (reported 55 tests, including forced-crash recovery, RBAC/MFA, encrypted backup/restore and WireGuard/Xray config parsing). <b>Not</b> deployed to hardware; Xray activation held pending dependency advisories; the live router was deliberately left untouched. Not production-accepted — a candidate, documented as such.</p>
       </div></details>
     </article>
 
@@ -232,7 +223,36 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
     </article>
 
     <article class="card">
-      <div class="top"><span class="idx">04</span><span class="status lab">● lab</span></div>
+      <div class="top"><span class="idx">04</span><span class="status live">● write-up</span></div>
+      <h3>Network Reconnaissance with Nmap</h3>
+      <p>A full discovery-to-fingerprint workflow on my own network, with defensive takeaways.</p>
+      <div class="tags"><span class="tag">Nmap</span><span class="tag">Kali</span><span class="tag">Recon</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Objective</h4>
+        <p>Carry out the reconnaissance phases of a security assessment against my own home network, moving from "what hosts exist?" to "what is this host and what does it run?".</p>
+        <h4>Method</h4>
+        <ul>
+          <li><b>Host discovery:</b> <code>nmap -sn 192.168.0.0/24</code> — a ping sweep with no port scan, mapping the live footprint quietly.</li>
+          <li><b>Service enumeration:</b> <code>nmap -sV</code> against a target host, exporting to XML.</li>
+          <li><b>OS detection:</b> <code>sudo nmap -O</code> for fingerprinting.</li>
+          <li><b>Aggressive pass:</b> <code>sudo nmap -A</code> combining version/OS detection, default NSE scripts and traceroute.</li>
+        </ul>
+        <h4>Findings</h4>
+        <ul>
+          <li>Six live hosts, including the gateway and an Apple device exposing only ports <code>49152</code> and <code>62078</code> (the <code>iphone-sync</code> service gave the device type away before any OS scan).</li>
+          <li>OS detection returned slightly different guesses between the <code>-O</code> and <code>-A</code> runs — a genuine lesson in the limits of fingerprinting a hardened device with a small exposed surface.</li>
+        </ul>
+        <h4>Defensive takeaways</h4>
+        <ul>
+          <li>Minimise attack surface — every closed/filtered port is one less thing an attacker learns.</li>
+          <li>Reconnaissance is noisy: ping sweeps and sequential probes are detectable with IDS/IPS and firewall logging.</li>
+          <li>Segment the network so a single foothold reaches as little as possible.</li>
+        </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">05</span><span class="status lab">● lab</span></div>
       <h3>Nmap Scanning &amp; Firewall Evasion Lab</h3>
       <p>An extensive EVE-NG lab across the full range of Nmap techniques.</p>
       <div class="tags"><span class="tag">Nmap</span><span class="tag">EVE-NG</span><span class="tag">NSE</span><span class="tag">Firewall evasion</span></div>
@@ -250,7 +270,7 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
     </article>
 
     <article class="card">
-      <div class="top"><span class="idx">05</span><span class="status lab">● lab</span></div>
+      <div class="top"><span class="idx">06</span><span class="status lab">● lab</span></div>
       <h3>Wireless Network Security Auditing Lab</h3>
       <p>Authorised WPA/WPA2 auditing with Wifite and the aircrack-ng suite, plus blue-team fixes.</p>
       <div class="tags"><span class="tag">Wifite</span><span class="tag">aircrack-ng</span><span class="tag">hashcat</span><span class="tag">WPS / PMKID</span><span class="tag">WPA3</span></div>
@@ -275,7 +295,26 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
     </article>
 
     <article class="card">
-      <div class="top"><span class="idx">06</span><span class="status lab">● lab</span></div>
+      <div class="top"><span class="idx">07</span><span class="status live">● built</span></div>
+      <h3>Router WireGuard Remote Access (TP-Link GE230)</h3>
+      <p>WireGuard remote access to my home network, configured on the router and tested from abroad.</p>
+      <div class="tags"><span class="tag">WireGuard</span><span class="tag">TP-Link GE230</span><span class="tag">Split / full tunnel</span><span class="tag">DNS / MTU</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Objective</h4>
+        <p>Provide secure remote access back to my home network from the UK using the router's built-in WireGuard, keeping the existing router configuration intact.</p>
+        <h4>Work</h4>
+        <ul>
+          <li>Generated per-device WireGuard profiles within a private subnet.</li>
+          <li>Verified a fresh handshake and data flow from the UK.</li>
+          <li>Troubleshot DNS, AllowedIPs, routing and MTU; documented full-tunnel vs split-tunnel behaviour.</li>
+        </ul>
+        <h4>Honesty note</h4>
+        <p>UK connectivity tested and working. Some restrictive networks established a handshake but passed no traffic — consistent with upstream path/UDP restrictions rather than a single confirmed cause. Keys are treated as rotatable and the router config was preserved throughout.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">08</span><span class="status lab">● lab</span></div>
       <h3>Enterprise Network Simulation &amp; Design</h3>
       <p>Multi-subnet topologies in Cisco Packet Tracer, plus hands-on physical lab work.</p>
       <div class="tags"><span class="tag">Packet Tracer</span><span class="tag">VLANs</span><span class="tag">Routing</span><span class="tag">ACLs</span></div>
@@ -290,7 +329,23 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
     </article>
 
     <article class="card">
-      <div class="top"><span class="idx">07</span><span class="status live">● tooling</span></div>
+      <div class="top"><span class="idx">09</span><span class="status lab">● lab</span></div>
+      <h3>Kali Linux Provisioning &amp; Hardening</h3>
+      <p>Built a dedicated offensive-security workstation from bare metal.</p>
+      <div class="tags"><span class="tag">Kali Linux</span><span class="tag">Rufus</span><span class="tag">GRUB</span><span class="tag">Partitioning</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Scope</h4>
+        <ul>
+          <li>Flashed the official Kali ISO with Rufus as UEFI/BIOS-compatible media.</li>
+          <li>Installed via the graphical installer; set locale, hostname and a non-root least-privilege admin user.</li>
+          <li>Managed disk partitioning (ext4 root + swap) and installed the GRUB boot loader.</li>
+          <li>This workstation is the base for the reconnaissance, wireless and exploitation labs above.</li>
+        </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">10</span><span class="status live">● tooling</span></div>
       <h3>Automation &amp; Scripting Frameworks</h3>
       <p>Python and Bash tooling to automate system administration and diagnostics.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Automation</span></div>
@@ -305,7 +360,7 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
     </article>
 
     <article class="card">
-      <div class="top"><span class="idx">08</span><span class="status lab">● lab</span></div>
+      <div class="top"><span class="idx">11</span><span class="status lab">● lab</span></div>
       <h3>Cloud Security &amp; OSINT Reconnaissance</h3>
       <p>Secure credential handling on GCP and OSINT mapping with Maltego.</p>
       <div class="tags"><span class="tag">GCP</span><span class="tag">IAM</span><span class="tag">Maltego</span><span class="tag">OSINT</span></div>
@@ -315,6 +370,45 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
           <li><b>Cloud security:</b> practised secure handling of service-account and API keys and IAM least-privilege access on Google Cloud Platform.</li>
           <li><b>OSINT:</b> used Maltego to map digital footprints and visualise relationships between entities and infrastructure during the reconnaissance phase.</li>
         </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">12</span><span class="status lab">● in progress</span></div>
+      <h3>Secure CCTV / NVR Private Cloud</h3>
+      <p>Designing private, encrypted camera recording and remote viewing with strict network isolation.</p>
+      <div class="tags"><span class="tag">ONVIF / RTSP</span><span class="tag">NVR</span><span class="tag">Segmentation</span><span class="tag">Private cloud</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Objective</h4>
+        <p>Record from a Wi-Fi camera (Imou Ranger 2 Dual) without relying on SD cards, with encrypted private remote viewing and selective, lawful cloud backup.</p>
+        <h4>Design</h4>
+        <ul>
+          <li>Isolate the camera on a dedicated subnet and keep camera/NVR web interfaces private.</li>
+          <li>Verify ONVIF/RTSP capability before committing to an NVR path.</li>
+          <li>Plan storage, retention, upload bandwidth and power; enforce authentication and encrypted, tested backups.</li>
+        </ul>
+        <h4>Honesty note</h4>
+        <p>Hardware acquired; the NVR/cloud integration is still being designed — not yet a confirmed running system. Included to show infrastructure-security thinking in progress.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">13</span><span class="status live">● case study</span></div>
+      <h3>Windows Trojan Incident Response (2022)</h3>
+      <p>Detected, isolated and recovered from a Windows Trojan on a friend's device.</p>
+      <div class="tags"><span class="tag">Incident response</span><span class="tag">Containment</span><span class="tag">Recovery</span><span class="tag">Account hardening</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Situation</h4>
+        <p>A friend's Windows device was compromised by a Trojan, affecting their online accounts.</p>
+        <h4>Actions</h4>
+        <ul>
+          <li><b>Detection:</b> identified the malware using Windows Security.</li>
+          <li><b>Containment:</b> isolated the device to stop further spread.</li>
+          <li><b>Eradication:</b> performed a clean Windows reinstall rather than attempting to "clean" the infection.</li>
+          <li><b>Recovery:</b> supported recovery and re-securing of affected accounts, including associated Meta accounts.</li>
+        </ul>
+        <h4>Scope &amp; lessons</h4>
+        <p>This was personal troubleshooting and basic containment, eradication and recovery — not enterprise incident response, forensic imaging, SIEM/EDR analysis or malware reverse-engineering. Key lessons: isolate fast, rebuild rather than clean, and harden accounts afterwards with password resets and MFA.</p>
       </div></details>
     </article>
 
