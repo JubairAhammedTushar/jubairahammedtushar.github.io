@@ -3,8 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Jubair Ahammed Tushar — Security Portfolio</title>
-<meta name="description" content="Cybersecurity portfolio of Jubair Ahammed Tushar — aspiring penetration tester in Cardiff. Documented, authorised lab projects.">
+<title>Jubair Ahammed Tushar | Cybersecurity, Linux & Secure Infrastructure</title>
+<meta name="description" content="Cybersecurity student and aspiring security engineer in Cardiff, Wales. Explore secure networking, Linux VPN infrastructure, incident recovery and evidence-led security projects.">
+<meta name="theme-color" content="#05070b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jubair Ahammed Tushar | Cybersecurity Portfolio">
+<meta property="og:description" content="Secure infrastructure, Linux, networking and hands-on cybersecurity projects with transparent evidence and project status.">
+<meta property="og:url" content="https://jubairahammedtushar.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://jubairahammedtushar.github.io/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 html{color-scheme:dark}
@@ -99,10 +106,76 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 @media(prefers-reduced-motion:no-preference){.dot{animation:pulse 2.4s ease-in-out infinite}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(91,140,255,.22)}50%{box-shadow:0 0 0 7px transparent}}
+
+/* Portfolio refinement 2026-10: layout, accessibility, evidence and mobile */
+:root{--bg:#05070b;--surface:#0b1018;--surface-2:#121b27;--fg:#eff4fa;--muted:#99a8b8;--border:#213040;--accent:#7cbcff;--accent-2:#a8e3d4;--grad:linear-gradient(110deg,#7cbcff,#b3c4ff);--maxw:1160px}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{background:radial-gradient(ellipse 680px 380px at 80% 100px,rgba(74,125,170,.15),transparent 75%),radial-gradient(ellipse 750px 520px at 3% 740px,rgba(40,95,91,.10),transparent 70%),#05070b;background-attachment:scroll}
+::selection{background:#9acbff;color:#06111a}
+.skip{position:absolute;left:12px;top:-70px;padding:12px 20px;background:#fff;color:#070b10;z-index:100}
+.skip:focus{top:12px}
+.nav{background:rgba(5,7,11,.88)}
+.nav .wrap{padding-block:17px}
+.brand{font-size:.96rem}
+.navlinks{gap:24px}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--accent)}
+section{padding-block:clamp(64px,8vw,110px)}
+.eyebrow{letter-spacing:.18em;color:var(--accent);background:none;-webkit-text-fill-color:initial;font-weight:600}
+.hero{padding-block:clamp(65px,10vw,132px);border-bottom:1px solid var(--border)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(320px,.86fr);align-items:center;gap:clamp(32px,5vw,78px)}
+.hero h1{font-size:clamp(2.85rem,5.8vw,5.75rem);line-height:1.06;letter-spacing:-.06em;margin-top:22px;max-width:12ch}
+.hero h1 em{font-style:normal;color:#98caff}
+.hero .role{line-height:1.8;max-width:53ch;margin-top:27px;font-size:1.08rem}
+.hero-copy{min-width:0}.rule{width:95px;background:#a0d7ed;opacity:.8}
+.loc{font-size:.75rem}.loc .sep{color:#627a92}
+.cta{margin-top:34px}.btn{padding:13px 18px;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.btn:hover{transform:translateY(-2px)}.btn.pri{background:#a8d8ff;color:#06131f;border-color:#a8d8ff}
+.btn.pri:hover{background:#c5e7ff}
+.hero-panel{border:1px solid #26394a;border-radius:21px;background:linear-gradient(150deg,rgba(19,38,51,.92),rgba(8,13,20,.98) 65%);box-shadow:0 30px 90px rgba(0,0,0,.35);overflow:hidden;min-width:0}
+.panel-head{display:flex;justify-content:space-between;padding:20px 23px;border-bottom:1px solid #26394a;font:.7rem var(--f-mono);letter-spacing:.07em;color:#b7c6d3;gap:12px}
+.panel-led{color:#95d7b4}.panel-graphic{height:254px;position:relative;background:radial-gradient(ellipse at 50% 52%,rgba(82,145,169,.18),transparent 63%),linear-gradient(rgba(135,185,205,.038) 1px,transparent 1px),linear-gradient(90deg,rgba(135,185,205,.038) 1px,transparent 1px);background-size:auto,28px 28px,28px 28px}
+.panel-graphic:after{content:"";position:absolute;left:12%;right:12%;top:19%;bottom:18%;border:1px dashed rgba(155,206,225,.2);border-radius:50%;transform:rotate(-17deg)}
+.node{position:absolute;z-index:1;border:1px solid #416075;background:#142734;color:#b6dded;padding:8px 12px;border-radius:9px;font:600 .7rem/1.25 var(--f-mono);text-align:center;letter-spacing:.04em;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.node.center{left:50%;top:50%;transform:translate(-50%,-50%);padding:26px 27px;border-color:#8abdd8;color:#e7faff;box-shadow:0 0 0 10px rgba(112,172,200,.045),0 0 0 24px rgba(112,172,200,.03);font-size:1rem}
+.node.n1{left:9%;top:19%}.node.n2{right:9%;top:17%}.node.n3{left:11%;bottom:18%}.node.n4{right:8%;bottom:20%}
+.panel-base{padding:25px 26px 29px;border-top:1px solid #26394a}.panel-kicker{font:.68rem var(--f-mono);letter-spacing:.17em;color:#9cd1e5}
+.panel-base h2{font-size:1.38rem;margin-top:9px;line-height:1.3}.panel-base p{font-size:.88rem;color:var(--muted);margin:12px 0 14px;line-height:1.7}
+.panel-base a{color:#9cd6f2;font:600 .78rem var(--f-mono);text-decoration:none}.panel-base a:hover{text-decoration:underline}
+.about-grid{display:grid;grid-template-columns:.9fr 1fr;gap:clamp(30px,8vw,110px)}
+.about-grid .sec{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.18;letter-spacing:-.035em}
+.about-grid .prose p:first-child{margin-top:0}
+.skillgrid{gap:16px;grid-template-columns:repeat(3,1fr)}
+.skill,.card{background:linear-gradient(145deg,rgba(17,27,38,.9),rgba(9,15,22,.98));border-color:#243545}
+.skill{padding:25px}.skill h3{background:none;color:#8ccaf0;-webkit-text-fill-color:initial;font-size:.77rem}
+.tag{background:rgba(37,56,73,.45);border-color:#2e4557;color:#c6d4df}
+.projects{gap:19px;margin-top:24px}
+.card{padding:27px;border-radius:16px;transition:transform .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-3px);border-color:#50728c}
+.card::before{height:2px;background:linear-gradient(90deg,#7bd6da,#86acfa);opacity:.58}
+.card .idx{letter-spacing:.1em}
+.card h3{font-size:1.32rem;line-height:1.3;letter-spacing:-.02em}
+.card>p{line-height:1.7}
+.status{font-size:.66rem;background:rgba(40,64,73,.35);border:1px solid #466575;color:#b5cfdc;padding:5px 9px;text-transform:uppercase;letter-spacing:.04em}
+.status.built{border-color:#3d7066;color:#a1e6c8}
+.status.candidate{border-color:#6f638e;color:#d2b9ff}
+.status.practice{border-color:#755d45;color:#e6c59d}
+.writeup{margin-top:auto;padding-top:17px}.writeup summary{color:#a5d5f6;font-size:.8rem}
+.writeup .body{line-height:1.8}.writeup .body li{margin:0 0 6px}
+.filters{margin-top:28px;display:flex;flex-wrap:wrap;gap:9px}
+.filter{cursor:pointer;color:#bccdda;border:1px solid #2b4252;background:#0d1821;border-radius:999px;padding:10px 17px;font:600 .76rem var(--f-mono)}
+.filter:hover{background:#1b2c39}.filter.active{color:#081722;background:#b2ddf7;border-color:#b2ddf7}
+.filter span{opacity:.72}.filter-count{font:.72rem var(--f-mono);color:var(--muted);margin:20px 0 0}
+.ethics{border-left-color:#86d7da;background:#0d1821}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero h1{max-width:15ch}.hero-panel{max-width:650px}.about-grid{grid-template-columns:1fr;gap:24px}.skillgrid{grid-template-columns:1fr}.projects{grid-template-columns:1fr 1fr}}
+@media(max-width:670px){.nav .wrap{align-items:center}.brand{font-size:.82rem}.navlinks{gap:12px;font-size:.75rem}.navlinks a.nl{display:none}.hero{padding-top:62px}.hero h1{font-size:clamp(2.7rem,12vw,4.3rem)}.hero-panel .panel-graphic{height:200px}.projects{grid-template-columns:1fr}.card{padding:23px}.panel-base{padding:20px}.filters{gap:7px}.filter{padding:9px 12px;font-size:.7rem}.status{white-space:normal;text-align:right}.about-grid .sec{font-size:2.15rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover,.card:hover{transform:none}}
+
 </style>
 </head>
 <body>
-<nav class="nav"><div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main navigation"><div class="wrap">
   <span class="brand">Jubair Ahammed Tushar</span>
   <div class="navlinks">
     <a class="nl" href="#about">About</a>
@@ -112,328 +185,81 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
   </div>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <h1>Jubair Ahammed Tushar</h1>
-  <p class="role"><b>Aspiring penetration tester</b> and cybersecurity student, building a hands-on career in offensive security and network engineering.</p>
+<main id="main"><header class="hero"><div class="wrap hero-grid"><div class="hero-copy">
+  <span class="eyebrow">Cybersecurity / Linux / Network engineering</span>
+  <h1>Security starts with <em>understanding systems.</em></h1>
+  <p class="role">I’m <b>Jubair Ahammed Tushar</b>, a Cardiff-based cybersecurity student building real experience in secure infrastructure, Linux administration, networking and authorised security labs.</p>
   <div class="rule"></div>
-  <div class="loc"><span class="dot"></span> Cardiff, Wales &nbsp;·&nbsp; Open to roles &amp; degree apprenticeships</div>
+  <div class="loc"><span class="dot"></span> Cardiff, Wales <span class="sep">/</span> Seeking 2027 cyber &amp; technology apprenticeships</div>
   <div class="cta">
-    <a class="btn pri" href="https://github.com/JubairAhammedTushar" target="_blank" rel="noopener">GitHub ↗</a>
-    <a class="btn" href="https://www.linkedin.com/in/jubair-ahammed-tushar" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a class="btn" href="#projects">View projects</a>
+    <a class="btn pri" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+    <a class="btn" href="https://github.com/JubairAhammedTushar" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <a class="btn" href="https://www.linkedin.com/in/jubair-ahammed-tushar" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
   </div>
+</div>
+  <aside class="hero-panel" aria-label="Featured engineering project">
+    <div class="panel-head"><span>FIELD NOTES / 001</span><span class="panel-led">● IN REVIEW</span></div>
+    <div class="panel-graphic" aria-hidden="true"><span class="node center">JACG<br>2300</span><span class="node n1">LINUX</span><span class="node n2">VPN</span><span class="node n3">TESTS</span><span class="node n4">AUDIT</span></div>
+    <div class="panel-base"><span class="panel-kicker">FLAGSHIP PROJECT</span><h2>Engineering a safer remote-access gateway.</h2><p>Release-candidate source and automated testing. Live deployment remains gated by security and hardware acceptance.</p><a href="#projects">Read the case study ↗</a></div>
+  </aside>
 </div></header>
 
-<section id="about"><div class="wrap prose">
-  <span class="eyebrow">About</span>
-  <h2 class="sec">Business-aware, lab-driven, honest about scope.</h2>
-  <p>I'm completing a one-year Diploma in Cyber Security &amp; IT Infrastructure at DIPTI. The programme is intensive and lab-driven — covering network security, Linux administration, ethical hacking, penetration testing, cloud security and digital forensics.</p>
-  <p>Beyond coursework I run my own home lab, where I practise network reconnaissance, vulnerability assessment and secure infrastructure — including building a multi-protocol VPN gateway and writing up what I learn. Before security, I spent several years in IT management and digital marketing, which means I understand how a business actually runs and where its real risk sits.</p>
+<section id="about"><div class="wrap about-grid">
+  <div><span class="eyebrow">01 / About</span><h2 class="sec">Curiosity, documentation, and practical problem-solving.</h2></div>
+  <div class="prose"><p>I study cybersecurity and IT infrastructure, and I learn by building systems, troubleshooting failures and documenting what the evidence actually shows.</p><p>My work spans an Ubuntu-based private VPN gateway, cross-country WireGuard connectivity, an auditable gateway release candidate, and earlier personal malware recovery. I’m particularly interested in secure networking, offensive-security fundamentals, security engineering and AI-assisted automation.</p><p>Each entry is labelled to distinguish historical hands-on work, source-backed prototypes and labs still in progress. I would rather show the method and limitations than claim results I cannot demonstrate.</p></div>
 </div></section>
 
 <section id="skills"><div class="wrap">
-  <span class="eyebrow">Capabilities</span>
-  <h2 class="sec">Tools &amp; techniques</h2>
+  <span class="eyebrow">02 / Focus</span><h2 class="sec">What I’m learning and building</h2>
+  <p class="lead">Hands-on interests supported by projects or training. A listed technology is not a claim of expert-level proficiency.</p>
   <div class="skillgrid">
-    <div class="skill"><h3>Offensive &amp; recon</h3><div class="tags">
-      <span class="tag">Nmap</span><span class="tag">Metasploit</span><span class="tag">Nessus</span><span class="tag">Burp Suite</span><span class="tag">Wifite / aircrack-ng</span><span class="tag">Maltego / OSINT</span><span class="tag">hashcat</span>
-    </div></div>
-    <div class="skill"><h3>Networking</h3><div class="tags">
-      <span class="tag">CCNA R&amp;S</span><span class="tag">OSPF / EIGRP</span><span class="tag">VLANs &amp; ACLs</span><span class="tag">NAT</span><span class="tag">iptables / nftables</span><span class="tag">WireGuard</span><span class="tag">Wireshark</span>
-    </div></div>
-    <div class="skill"><h3>Systems, cloud &amp; code</h3><div class="tags">
-      <span class="tag">Kali Linux</span><span class="tag">Ubuntu Server</span><span class="tag">Xray-core</span><span class="tag">Docker</span><span class="tag">GCP / IAM</span><span class="tag">Python</span><span class="tag">React</span><span class="tag">Bash</span>
-    </div></div>
+    <div class="skill"><h3>Secure infrastructure</h3><div class="tags"><span class="tag">Ubuntu Server</span><span class="tag">Linux</span><span class="tag">WireGuard</span><span class="tag">Xray-core</span><span class="tag">SSH</span><span class="tag">nftables</span><span class="tag">Routing / DNS</span></div></div>
+    <div class="skill"><h3>Investigation & labs</h3><div class="tags"><span class="tag">Kali Linux</span><span class="tag">Nmap</span><span class="tag">Wireshark</span><span class="tag">Metasploitable 2</span><span class="tag">Incident response</span><span class="tag">Network analysis</span><span class="tag">Authorised testing</span></div></div>
+    <div class="skill"><h3>Engineering practice</h3><div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Automated tests</span><span class="tag">Documentation</span><span class="tag">Threat modelling</span><span class="tag">Rollback design</span><span class="tag">AI-assisted coding</span></div></div>
   </div>
 </div></section>
 
 <section id="projects"><div class="wrap">
-  <span class="eyebrow">Selected work · authorised lab</span>
-  <h2 class="sec">Projects</h2>
-  <p class="lead">Every project below was carried out on systems I own or am authorised to test. Expand any card for the full write-up — objective, method, findings and remediation.</p>
-  <div class="projects">
-
-    <article class="card">
-      <div class="top"><span class="idx">01</span><span class="status live">● built</span></div>
-      <h3>Mark 2000 — Self-Hosted VPN &amp; Network Management Server</h3>
-      <p>A multi-protocol VPN/proxy gateway on Ubuntu, with a management layer I built from scratch.</p>
-      <div class="tags"><span class="tag">Xray-core</span><span class="tag">Python</span><span class="tag">React</span><span class="tag">iptables</span><span class="tag">TCP BBR</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Objective</h4>
-        <p>Build a self-hosted, privacy-focused VPN and multi-user proxy gateway on a spare Ubuntu laptop, with central management of users and devices — replacing an unreliable commercial VPN and enabling secure remote access to my own network.</p>
-        <h4>Architecture</h4>
-        <ul>
-          <li><b>Core engine:</b> Xray-core providing multiple inbounds — VLESS + REALITY (XTLS Vision), VLESS over WebSocket/gRPC, VMess, Trojan+TLS and Shadowsocks — for protocol flexibility and traffic obfuscation.</li>
-          <li><b>Management layer:</b> a Python backend for user/device creation, config generation and monitoring, with a React dashboard front-end; Bash scripts automate deployment and generate per-device QR profiles and subscription links.</li>
-          <li><b>Performance tuning:</b> TCP BBR congestion control with the <code>fq</code> queue discipline, tuned socket buffers and MTU/MSS clamping per path.</li>
-          <li><b>Perimeter:</b> <code>iptables</code> rules restricting exposure and isolating user traffic; local proxies bound to <code>127.0.0.1</code>.</li>
-        </ul>
-        <h4>What I learned</h4>
-        <ul>
-          <li>Orchestration is harder than the crypto: most failures came from services competing for the same ports and non-atomic config reloads, not from the VPN protocols themselves.</li>
-          <li>A security review of my own early scripts flagged real hazards to fix in any future build — a self-signed Trojan cert with <code>allowInsecure=1</code>, plaintext secrets in backups, and management UIs that must never be exposed to the public internet.</li>
-        </ul>
-        <h4>Status &amp; honesty note</h4>
-        <p>Working self-built project on my own hardware. Throughput and multi-user capacity figures are not independently benchmarked, and I'd re-engineer the identified weaknesses before treating it as production-grade — which is what the rebuild (next) addresses.</p>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">02</span><span class="status lab">● release candidate</span></div>
-      <h3>JACG-2300 — Secure Gateway Rebuild</h3>
-      <p>An industry-grade re-engineering of the gateway, focused on privilege separation and safe, recoverable changes.</p>
-      <div class="tags"><span class="tag">Ubuntu Server</span><span class="tag">nftables</span><span class="tag">RBAC / MFA</span><span class="tag">WireGuard</span><span class="tag">CI / tests</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Objective</h4>
-        <p>Rebuild the gateway as a secure, maintainable multi-protocol system after the first version became hard to recover when changes went wrong — designing for least privilege and safe, reversible operations.</p>
-        <h4>Design</h4>
-        <ul>
-          <li><b>Privilege separation:</b> a root-only broker owns credentials and network changes; the HTTPS management dashboard runs unprivileged on loopback, reached over SSH.</li>
-          <li><b>Access control:</b> password + TOTP MFA, role-based access, short sessions and an audit trail.</li>
-          <li><b>Transactional changes:</b> validate → stage → syntax-test → journal → apply → functional-test → commit or roll back, so a failure never leaves a half-added account or a revoked account still connected.</li>
-          <li><b>Hardening:</b> nftables isolation, key-only SSH, Fail2ban, encrypted backups, BBR, service-recovery timers.</li>
-        </ul>
-        <h4>Status &amp; honesty note</h4>
-        <p>An isolated release candidate with a local automated test suite (reported 55 tests, including forced-crash recovery, RBAC/MFA, encrypted backup/restore and WireGuard/Xray config parsing). <b>Not</b> deployed to hardware; Xray activation held pending dependency advisories; the live router was deliberately left untouched. Not production-accepted — a candidate, documented as such.</p>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">03</span><span class="status live">● write-up</span></div>
-      <h3>Vulnerability Assessment &amp; Exploit Validation</h3>
-      <p>Nessus → investigation → authorised Metasploit validation → remediation, on a deliberately vulnerable lab host.</p>
-      <div class="tags"><span class="tag">Nessus</span><span class="tag">Metasploit</span><span class="tag">Reporting</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Objective</h4>
-        <p>Run a full assessment workflow against an intentionally vulnerable Metasploitable 2 host in an isolated lab — discovery, investigation of a finding, controlled validation, and remediation.</p>
-        <h4>Method &amp; findings</h4>
-        <ul>
-          <li><b>Discovery:</b> a Tenable Nessus credentialed scan surfaced numerous findings; I focused on the FTP service, identified as <code>vsftpd 2.3.4</code> (plugin 52703).</li>
-          <li><b>Investigation:</b> that exact release carries a well-documented backdoor introduced into its distribution in 2011 — <b>CVE-2011-2523</b> — a classic software supply-chain compromise.</li>
-          <li><b>Validation:</b> the matching Metasploit module (<code>exploit/unix/ftp/vsftpd_234_backdoor</code>, rank <i>excellent</i>) confirmed the finding was a true positive and returned a shell.</li>
-          <li><b>Proof:</b> verified root-level access on the target (<code>hostname</code>, <code>id</code>, <code>/etc/passwd</code>), then stopped — no destructive actions.</li>
-        </ul>
-        <h4>Remediation recommended</h4>
-        <ul>
-          <li>Remove/upgrade the backdoored vsftpd build immediately; install only from trusted repositories with checksum/signature verification.</li>
-          <li>Prefer SFTP/FTPS over plain FTP; decommission the other legacy clear-text services (Telnet, rlogin, rsh) the scan surfaced.</li>
-          <li>Establish ongoing vulnerability management — regular authenticated scans and a patch cadence.</li>
-        </ul>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">04</span><span class="status live">● write-up</span></div>
-      <h3>Network Reconnaissance with Nmap</h3>
-      <p>A full discovery-to-fingerprint workflow on my own network, with defensive takeaways.</p>
-      <div class="tags"><span class="tag">Nmap</span><span class="tag">Kali</span><span class="tag">Recon</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Objective</h4>
-        <p>Carry out the reconnaissance phases of a security assessment against my own home network, moving from "what hosts exist?" to "what is this host and what does it run?".</p>
-        <h4>Method</h4>
-        <ul>
-          <li><b>Host discovery:</b> <code>nmap -sn 192.168.0.0/24</code> — a ping sweep with no port scan, mapping the live footprint quietly.</li>
-          <li><b>Service enumeration:</b> <code>nmap -sV</code> against a target host, exporting to XML.</li>
-          <li><b>OS detection:</b> <code>sudo nmap -O</code> for fingerprinting.</li>
-          <li><b>Aggressive pass:</b> <code>sudo nmap -A</code> combining version/OS detection, default NSE scripts and traceroute.</li>
-        </ul>
-        <h4>Findings</h4>
-        <ul>
-          <li>Six live hosts, including the gateway and an Apple device exposing only ports <code>49152</code> and <code>62078</code> (the <code>iphone-sync</code> service gave the device type away before any OS scan).</li>
-          <li>OS detection returned slightly different guesses between the <code>-O</code> and <code>-A</code> runs — a genuine lesson in the limits of fingerprinting a hardened device with a small exposed surface.</li>
-        </ul>
-        <h4>Defensive takeaways</h4>
-        <ul>
-          <li>Minimise attack surface — every closed/filtered port is one less thing an attacker learns.</li>
-          <li>Reconnaissance is noisy: ping sweeps and sequential probes are detectable with IDS/IPS and firewall logging.</li>
-          <li>Segment the network so a single foothold reaches as little as possible.</li>
-        </ul>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">05</span><span class="status lab">● lab</span></div>
-      <h3>Nmap Scanning &amp; Firewall Evasion Lab</h3>
-      <p>An extensive EVE-NG lab across the full range of Nmap techniques.</p>
-      <div class="tags"><span class="tag">Nmap</span><span class="tag">EVE-NG</span><span class="tag">NSE</span><span class="tag">Firewall evasion</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Scope</h4>
-        <ul>
-          <li><b>Host discovery:</b> TCP SYN/ACK, UDP, ARP, ICMP, IP-protocol, timestamp and address-mask ping.</li>
-          <li><b>Port scans:</b> SYN (half-open), Connect, UDP, ACK, Window, Maimon, Xmas, Null, FIN and Idle scans — and what each reveals about port state and filtering.</li>
-          <li><b>Detection:</b> service/version, OS, aggressive scanning and the NSE scripting engine (banner, HTTP enumeration, FTP checks).</li>
-          <li><b>Firewall evasion:</b> packet fragmentation, MTU sizing, decoys, source IP/port spoofing and MAC spoofing — with the detection/defence angle for each.</li>
-        </ul>
-        <h4>Environment</h4>
-        <p>Built and run in an EVE-NG network emulation lab so scans ran against virtual hosts and firewalls I controlled end to end.</p>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">06</span><span class="status lab">● lab</span></div>
-      <h3>Wireless Network Security Auditing Lab</h3>
-      <p>Authorised WPA/WPA2 auditing with Wifite and the aircrack-ng suite, plus blue-team fixes.</p>
-      <div class="tags"><span class="tag">Wifite</span><span class="tag">aircrack-ng</span><span class="tag">hashcat</span><span class="tag">WPS / PMKID</span><span class="tag">WPA3</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Objective</h4>
-        <p>Assess the security posture of WPA/WPA2 wireless networks in an authorised lab — evaluating pre-shared-key strength, WPS configuration and management-frame protection.</p>
-        <h4>Method</h4>
-        <ul>
-          <li>Identified the wireless NIC, killed interfering daemons (<code>airmon-ng check kill</code>) and enabled monitor mode.</li>
-          <li>Enumerated BSSIDs, channels, encryption and connected clients with <code>wifite</code>.</li>
-          <li>Captured clientless RSN <b>PMKIDs</b> and full <b>4-way EAPOL handshakes</b> (via targeted deauthentication).</li>
-          <li>Tested <b>WPS Pixie-Dust / PIN</b> resistance on legacy routers.</li>
-          <li>Audited captured <code>.cap</code>/<code>.22000</code> material offline with <code>aircrack-ng</code>/<code>hashcat</code> against wordlists.</li>
-        </ul>
-        <h4>Blue-team remediations</h4>
-        <ul>
-          <li>Disable WPS entirely (defeats Pixie-Dust and PIN brute force).</li>
-          <li>Enable 802.11w management-frame protection to mitigate forged deauth attacks.</li>
-          <li>Move from WPA2-PSK to WPA3-SAE, or 802.1X/RADIUS, and enforce 16+ character passphrases.</li>
-        </ul>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">07</span><span class="status live">● built</span></div>
-      <h3>Router WireGuard Remote Access (TP-Link GE230)</h3>
-      <p>WireGuard remote access to my home network, configured on the router and tested from abroad.</p>
-      <div class="tags"><span class="tag">WireGuard</span><span class="tag">TP-Link GE230</span><span class="tag">Split / full tunnel</span><span class="tag">DNS / MTU</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Objective</h4>
-        <p>Provide secure remote access back to my home network from the UK using the router's built-in WireGuard, keeping the existing router configuration intact.</p>
-        <h4>Work</h4>
-        <ul>
-          <li>Generated per-device WireGuard profiles within a private subnet.</li>
-          <li>Verified a fresh handshake and data flow from the UK.</li>
-          <li>Troubleshot DNS, AllowedIPs, routing and MTU; documented full-tunnel vs split-tunnel behaviour.</li>
-        </ul>
-        <h4>Honesty note</h4>
-        <p>UK connectivity tested and working. Some restrictive networks established a handshake but passed no traffic — consistent with upstream path/UDP restrictions rather than a single confirmed cause. Keys are treated as rotatable and the router config was preserved throughout.</p>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">08</span><span class="status lab">● lab</span></div>
-      <h3>Enterprise Network Simulation &amp; Design</h3>
-      <p>Multi-subnet topologies in Cisco Packet Tracer, plus hands-on physical lab work.</p>
-      <div class="tags"><span class="tag">Packet Tracer</span><span class="tag">VLANs</span><span class="tag">Routing</span><span class="tag">ACLs</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Scope</h4>
-        <ul>
-          <li>Designed and simulated multi-subnet enterprise topologies in Cisco Packet Tracer.</li>
-          <li>Configured VLAN segmentation and inter-VLAN routing, static and dynamic routing, and ACLs to model secure enterprise architectures.</li>
-          <li>Reinforced with hands-on physical lab work — switches, routers, cabling, IPv4 subnetting and DHCP/DNS — as part of my CCNA studies (96% / A+).</li>
-        </ul>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">09</span><span class="status lab">● lab</span></div>
-      <h3>Kali Linux Provisioning &amp; Hardening</h3>
-      <p>Built a dedicated offensive-security workstation from bare metal.</p>
-      <div class="tags"><span class="tag">Kali Linux</span><span class="tag">Rufus</span><span class="tag">GRUB</span><span class="tag">Partitioning</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Scope</h4>
-        <ul>
-          <li>Flashed the official Kali ISO with Rufus as UEFI/BIOS-compatible media.</li>
-          <li>Installed via the graphical installer; set locale, hostname and a non-root least-privilege admin user.</li>
-          <li>Managed disk partitioning (ext4 root + swap) and installed the GRUB boot loader.</li>
-          <li>This workstation is the base for the reconnaissance, wireless and exploitation labs above.</li>
-        </ul>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">10</span><span class="status live">● tooling</span></div>
-      <h3>Automation &amp; Scripting Frameworks</h3>
-      <p>Python and Bash tooling to automate system administration and diagnostics.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Automation</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Scope</h4>
-        <ul>
-          <li>Custom Python and Bash scripts to automate repetitive system-administration tasks.</li>
-          <li>Automation for configuration backups, network diagnostics and system health checks.</li>
-          <li>Supporting tooling for the Mark 2000 gateway — deployment, config generation and profile exports.</li>
-        </ul>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">11</span><span class="status lab">● lab</span></div>
-      <h3>Cloud Security &amp; OSINT Reconnaissance</h3>
-      <p>Secure credential handling on GCP and OSINT mapping with Maltego.</p>
-      <div class="tags"><span class="tag">GCP</span><span class="tag">IAM</span><span class="tag">Maltego</span><span class="tag">OSINT</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Scope</h4>
-        <ul>
-          <li><b>Cloud security:</b> practised secure handling of service-account and API keys and IAM least-privilege access on Google Cloud Platform.</li>
-          <li><b>OSINT:</b> used Maltego to map digital footprints and visualise relationships between entities and infrastructure during the reconnaissance phase.</li>
-        </ul>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">12</span><span class="status lab">● in progress</span></div>
-      <h3>Secure CCTV / NVR Private Cloud</h3>
-      <p>Designing private, encrypted camera recording and remote viewing with strict network isolation.</p>
-      <div class="tags"><span class="tag">ONVIF / RTSP</span><span class="tag">NVR</span><span class="tag">Segmentation</span><span class="tag">Private cloud</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Objective</h4>
-        <p>Record from a Wi-Fi camera (Imou Ranger 2 Dual) without relying on SD cards, with encrypted private remote viewing and selective, lawful cloud backup.</p>
-        <h4>Design</h4>
-        <ul>
-          <li>Isolate the camera on a dedicated subnet and keep camera/NVR web interfaces private.</li>
-          <li>Verify ONVIF/RTSP capability before committing to an NVR path.</li>
-          <li>Plan storage, retention, upload bandwidth and power; enforce authentication and encrypted, tested backups.</li>
-        </ul>
-        <h4>Honesty note</h4>
-        <p>Hardware acquired; the NVR/cloud integration is still being designed — not yet a confirmed running system. Included to show infrastructure-security thinking in progress.</p>
-      </div></details>
-    </article>
-
-    <article class="card">
-      <div class="top"><span class="idx">13</span><span class="status live">● case study</span></div>
-      <h3>Windows Trojan Incident Response (2022)</h3>
-      <p>Detected, isolated and recovered from a Windows Trojan on a friend's device.</p>
-      <div class="tags"><span class="tag">Incident response</span><span class="tag">Containment</span><span class="tag">Recovery</span><span class="tag">Account hardening</span></div>
-      <details class="writeup"><summary>Read the write-up</summary><div class="body">
-        <h4>Situation</h4>
-        <p>A friend's Windows device was compromised by a Trojan, affecting their online accounts.</p>
-        <h4>Actions</h4>
-        <ul>
-          <li><b>Detection:</b> identified the malware using Windows Security.</li>
-          <li><b>Containment:</b> isolated the device to stop further spread.</li>
-          <li><b>Eradication:</b> performed a clean Windows reinstall rather than attempting to "clean" the infection.</li>
-          <li><b>Recovery:</b> supported recovery and re-securing of affected accounts, including associated Meta accounts.</li>
-        </ul>
-        <h4>Scope &amp; lessons</h4>
-        <p>This was personal troubleshooting and basic containment, eradication and recovery — not enterprise incident response, forensic imaging, SIEM/EDR analysis or malware reverse-engineering. Key lessons: isolate fast, rebuild rather than clean, and harden accounts afterwards with password resets and MFA.</p>
-      </div></details>
-    </article>
-
-  </div>
+  <span class="eyebrow">03 / Portfolio</span>
+  <h2 class="sec">Built. Tested. Still learning.</h2>
+  <p class="lead">Thirteen project and learning entries. Status labels separate reported hands-on work, a source-backed release candidate, historical practice and future development. Reported outcomes are not presented as independent audit results.</p>
+  <div class="filters" role="group" aria-label="Filter portfolio projects"><button type="button" class="filter active" aria-pressed="true" data-filter="all">All entries <span>13</span></button><button type="button" class="filter" aria-pressed="false" data-filter="built">Hands-on</button><button type="button" class="filter" aria-pressed="false" data-filter="candidate">Release candidate</button><button type="button" class="filter" aria-pressed="false" data-filter="practice">Labs &amp; roadmap</button></div>
+  <p id="filterCount" class="filter-count" aria-live="polite">Showing 13 entries</p>
+  <div class="projects"><article class="card" data-stage="built"><div class="top"><span class="idx">PROJECT / 01</span><span class="status built">Reported build</span></div><h3>Mark 2000 — Earlier Ubuntu VPN Gateway</h3><p>Self-hosted private VPN/proxy work on an older Ubuntu laptop with scripting and operational troubleshooting.</p><div class="tags"><span class="tag">Ubuntu</span><span class="tag">Xray-core</span><span class="tag">Bash</span><span class="tag">Python</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Purpose: Build private, flexible remote access from a personally managed server.</li><li>Reported work: Server provisioning, Xray protocol configuration, local proxy interfaces, management scripting and performance experiments.</li><li>What the available evidence supports: Historical personal project discussions; a current machine snapshot or benchmark is not preserved.</li><li>Next evidence step: Sanitised architecture, service inventory, reproducible test logs and security retrospective.</li></ul></div></details></article>
+<article class="card" data-stage="candidate"><div class="top"><span class="idx">PROJECT / 02</span><span class="status candidate">Source-backed RC1</span></div><h3>JACG-2300 — Security Gateway Release Candidate</h3><p>A safer successor gateway centred on least privilege, transactional configuration changes and recovery.</p><div class="tags"><span class="tag">Python</span><span class="tag">Linux</span><span class="tag">WireGuard</span><span class="tag">Tests</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Purpose: Re-engineer remote access services with secure defaults and safe failure recovery.</li><li>Recovered evidence: Complete RC1 source archive, deployment notes, security reviews and recorded automated test outputs.</li><li>Reported test scope: Local tests and simulated crash scenarios. Production deployment, regional compatibility and hardware validation remain unverified.</li><li>Current constraints: Treat the old installers as untrusted for live use; preserve the existing router and test in isolated staging before approval.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 03</span><span class="status practice">Practice · evidence limited</span></div><h3>Metasploitable 2 — Lab Network Troubleshooting</h3><p>An authorised Kali/Metasploitable lab focused on getting the network topology reachable before assessment.</p><div class="tags"><span class="tag">Kali Linux</span><span class="tag">Metasploitable 2</span><span class="tag">Routing</span><span class="tag">Nmap</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Historical exercise: A Kali host and intentionally vulnerable VM were reported on different IPv4 subnets.</li><li>Problem: The target needed confirmed layer-3 reachability before reliable discovery or vulnerability work.</li><li>Approach: Inspect interfaces, routing and the hypervisor’s lab network; then run permissioned discovery only inside the isolated lab.</li><li>Evidence limit: No archived successful exploitation result, Nessus report or root-shell output was recovered; those are not claimed here.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 04</span><span class="status practice">Learning workflow</span></div><h3>Network Reconnaissance — Repeatable Nmap Method</h3><p>A structured, authorised workflow for inventorying hosts and understanding visible services.</p><div class="tags"><span class="tag">Nmap</span><span class="tag">IP networking</span><span class="tag">Discovery</span><span class="tag">Reporting</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Scope: Only a home network or an isolated test subnet with permission.</li><li>Method: Establish target list and network reachability, record host discovery, then examine approved service fingerprints.</li><li>Defensive value: Inventory exposed services and recommend minimisation, segmentation and patching.</li><li>Evidence limit: Historical lab reports are incomplete; exact host counts, ports and scan findings are not published as verified results.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 05</span><span class="status practice">Planned lab</span></div><h3>Nmap / Firewall Behaviour — Planned Lab</h3><p>Compare discovery and port-state behaviour across a deliberately isolated virtual firewall.</p><div class="tags"><span class="tag">Firewall</span><span class="tag">Nmap</span><span class="tag">Lab design</span><span class="tag">Detection</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Proposed scope: Use disposable VMs and private virtual switches under explicit ownership.</li><li>Question: How do filtering rules change observed port states and defender logs?</li><li>Deliverables: Topology diagram, permitted probe matrix, firewall log correlations and precise limitations.</li><li>Status: A learning plan, not an already-completed EVE-NG evaluation.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 06</span><span class="status practice">Planned lab</span></div><h3>Wireless Security — Defensive Lab Roadmap</h3><p>A controlled wireless-learning plan centred on authentication, safe audit scope and hardening.</p><div class="tags"><span class="tag">WPA2 / WPA3</span><span class="tag">WPS</span><span class="tag">Segmentation</span><span class="tag">Wireless</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Proposed environment: An owned lab access point and test clients separated from household production access.</li><li>Focus: Configuration inventory, passphrase policy, WPA3 compatibility, WPS disablement and protected management frames.</li><li>Output goal: Sanitised observations and clear remediation advice.</li><li>Evidence limit: No preserved captured handshakes, wireless cracking results or WPS test logs were recovered.</li></ul></div></details></article>
+<article class="card" data-stage="built"><div class="top"><span class="idx">PROJECT / 07</span><span class="status built">Reported operational</span></div><h3>GE230 — WireGuard Remote Access</h3><p>Real router-level VPN configuration and UK-to-Bangladesh troubleshooting, including restrictive-network limitations.</p><div class="tags"><span class="tag">WireGuard</span><span class="tag">TP-Link</span><span class="tag">DNS</span><span class="tag">MTU</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Objective: Maintain private remote connectivity without disrupting the existing household router.</li><li>Reported evidence: Working WireGuard handshake and transferred data from a UK client.</li><li>Troubleshooting: Investigated routing, DNS, mobile application behaviour and networks where handshake did not guarantee connectivity.</li><li>Next step: Redacted repeatable connectivity measurements; avoid posting public endpoints or client keys.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 08</span><span class="status practice">Study / reported grades</span></div><h3>CCNA &amp; Linux — Training Foundations</h3><p>Networking fundamentals and Linux administration developed through training and practice.</p><div class="tags"><span class="tag">TCP/IP</span><span class="tag">Linux</span><span class="tag">Subnetting</span><span class="tag">Routing</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Training topics: Addressing, subnetting, switching, routing, DHCP/DNS and Linux administration.</li><li>The user previously reported A+ results in CCNA and Linux training modules; a formal vendor CCNA certification is not claimed.</li><li>Individual simulator files and graded lab outputs were not recovered for public review.</li><li>Next step: Publish reproducible Packet Tracer examples and verified output once collected.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 09</span><span class="status practice">Historical practice</span></div><h3>Kali Linux — Installation &amp; Lab Setup</h3><p>Hands-on familiarity with Kali Linux and the practical challenges of building a clean isolated lab.</p><div class="tags"><span class="tag">Kali</span><span class="tag">Linux</span><span class="tag">Virtualisation</span><span class="tag">Networking</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Early practice with Kali installation and networking was reported retrospectively from 2014–2015.</li><li>Later practice involved Kali and a Metasploitable test VM on separate networks.</li><li>Useful lessons: Document hypervisor network settings and isolate intentionally vulnerable targets.</li><li>Evidence limit: Original early installation images or command logs were not preserved.</li></ul></div></details></article>
+<article class="card" data-stage="built"><div class="top"><span class="idx">PROJECT / 10</span><span class="status built">Source-backed work</span></div><h3>Bash &amp; Python — Automation for Operations</h3><p>Configuration tooling and checks developed around the private gateway and its safer rebuild.</p><div class="tags"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">systemd</span><span class="tag">Validation</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Available artifacts include historical installers and a Python-based release candidate.</li><li>Practical topics: Configuration generation, health reporting, backup/restore design and safer error handling.</li><li>Key lesson: A working script is not automatically safe for production; use linting, tests, reviews and rollback plans.</li><li>Source is being reviewed before deciding what can safely become public.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 11</span><span class="status practice">Learning roadmap</span></div><h3>Cloud Security &amp; OSINT — Learning Roadmap</h3><p>Future demonstrable labs in cloud identity, least privilege and ethical open-source research.</p><div class="tags"><span class="tag">IAM</span><span class="tag">Cloud</span><span class="tag">OSINT</span><span class="tag">Audit</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Proposed cloud exercise: Build a small low-cost sandbox with tightly scoped IAM policies.</li><li>Proposed OSINT exercise: Investigate only owned or consented assets and record data provenance.</li><li>Deliverables: Redacted policy diffs, reproducible tests and a short security report.</li><li>No verified GCP IAM or Maltego lab artifacts have been retrieved; completed claims have been removed.</li></ul></div></details></article>
+<article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 12</span><span class="status practice">In planning</span></div><h3>Private CCTV / NVR — Secure Design</h3><p>A proposed private recording system that keeps camera access separated from public-facing services.</p><div class="tags"><span class="tag">Network isolation</span><span class="tag">NVR</span><span class="tag">Storage</span><span class="tag">Backup</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Reported hardware: Imou Ranger 2 Dual camera; NVR/cloud integration is not verified.</li><li>Design questions: Local streams, segmented access, secure backups, retention and UPS impact.</li><li>Risk: Never expose camera feeds or administrative panels directly to the public internet.</li><li>Next step: Confirm device-supported protocols and test within a restricted network.</li></ul></div></details></article>
+<article class="card" data-stage="built"><div class="top"><span class="idx">PROJECT / 13</span><span class="status built">User-reported case</span></div><h3>Windows Trojan Recovery — Personal Case</h3><p>A 2022 personal incident involving detection, containment, Windows reinstallation and account recovery.</p><div class="tags"><span class="tag">Windows</span><span class="tag">Containment</span><span class="tag">Recovery</span><span class="tag">MFA</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Context: Assisted another person with suspected Windows malware and affected online accounts.</li><li>Reported actions: Windows Security detection, device isolation, OS reinstallation and account recovery.</li><li>The exact malware signature, forensic acquisition and post-recovery validation were not preserved.</li><li>This is documented personal troubleshooting experience, not a professional DFIR engagement.</li></ul></div></details></article></div>
 </div></section>
 
 <section id="ethics"><div class="wrap">
   <div class="ethics">
     <span class="eyebrow">Scope &amp; authorisation</span>
-    <p>Every technique and tool shown here was practised exclusively on systems I own or am explicitly authorised to test, inside an isolated home lab. Nothing was run against third-party systems or networks.</p>
+    <p>I only test systems that I own or have explicit permission to assess. Some entries document completed personal work, while others are proposed study labs. I do not publish credentials, live endpoints, private client profiles, or third-party data; claims of results require supporting evidence.</p>
   </div>
 </div></section>
 
 <section id="contact"><div class="wrap contact">
   <span class="eyebrow">Contact</span>
   <h2 class="sec">Let's talk.</h2>
-  <p class="lead">Open to cybersecurity roles, SOC and penetration-testing positions, and degree apprenticeships across Cardiff and the UK — on-site, hybrid or remote.</p>
+  <p class="lead">Interested in 2027 cybersecurity and technology apprenticeships, hands-on learning opportunities and early-career pathways across South Wales and the UK.</p>
   <div class="row">
     <button class="copy" id="copyEmail" data-mail="jubairahmedtushar@gmail.com">jubairahmedtushar@gmail.com <span class="st" id="copySt">copy</span></button>
     <a class="btn" href="https://www.linkedin.com/in/jubair-ahammed-tushar" target="_blank" rel="noopener">LinkedIn ↗</a>
     <a class="btn" href="https://github.com/JubairAhammedTushar" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
 </div></section>
+</main>
 
-<footer><div class="wrap">Built by Jubair Ahammed Tushar · Cardiff, Wales</div></footer>
+<footer><div class="wrap"><span>Jubair Ahammed Tushar · Cardiff, Wales</span><span>Built for clarity, security &amp; continuous learning · 2026</span></div></footer>
 
 <script>
 (function(){
@@ -444,6 +270,7 @@ footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-blo
     function sel(){var r=document.createRange();r.selectNodeContents(c);var s=window.getSelection();s.removeAllRanges();s.addRange(r);done();}
   });
 })();
+  document.querySelectorAll("[data-filter]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.getAttribute("data-filter"),visible=0;document.querySelectorAll(".card[data-stage]").forEach(function(card){var show=group==="all"||card.getAttribute("data-stage")===group;card.hidden=!show;if(show)visible++;});document.querySelectorAll("[data-filter]").forEach(function(item){var active=item===btn;item.classList.toggle("active",active);item.setAttribute("aria-pressed",String(active));});document.getElementById("filterCount").textContent="Showing "+visible+" "+(visible===1?"entry":"entries");});});
 </script>
 </body>
 </html>

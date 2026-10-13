@@ -1,42 +1,58 @@
-# Jubair Ahammed Tushar — Cybersecurity Portfolio
+# Jubair Ahammed Tushar — Cybersecurity portfolio
 
-Personal portfolio site for **Jubair Ahammed Tushar** — aspiring penetration tester and cybersecurity student based in Cardiff, Wales.
+**Website:** https://jubairahammedtushar.github.io/
 
-🔗 **Live site:** https://jubairahammedtushar.github.io
+A static GitHub Pages portfolio focused on cybersecurity learning, secure Linux infrastructure, networking, personal incident recovery and documented engineering work.
 
----
+## Portfolio policy
 
-## About
+I distinguish what I have actually worked on from release candidates, reconstructed practice history and planned labs. A card appearing on the website is **not** a claim that the entire project is deployed, tested or professionally assessed.
 
-I'm completing a one-year Diploma in Cyber Security & IT Infrastructure at DIPTI, and I build and document hands-on security projects in my own authorised home lab. This site brings those together with a full write-up for each.
+| Status | What the label means |
+| --- | --- |
+| Reported build / hands-on | Personal experience reported in previous work. Historical logs are not always preserved. |
+| Source-backed RC1 | Recoverable code, documentation and local automated test evidence exist. Production acceptance is not established. |
+| Practice / learning / planned | Training topics or lab workflows; no claim that every exercise is completed or independently verified. |
 
-> **Scope & authorisation:** every technique shown in these projects was practised exclusively on systems I own or am authorised to test, inside an isolated lab. Nothing was run against third-party systems or networks.
+At the time of this review, the site includes 13 entries: four historical/source-supported personal work entries, one release-candidate project and eight practice/roadmap entries.
 
-## Projects
+## Projects to explore
 
-| # | Project | Focus | Status |
-|---|---------|-------|--------|
-| 01 | Mark 2000 — Self-Hosted VPN & Network Management Server | Xray-core, Python/React dashboard, iptables, TCP BBR | Built |
-| 02 | JACG-2300 — Secure Gateway Rebuild | Privilege separation, RBAC/MFA, nftables, transactional changes | Release candidate |
-| 03 | Vulnerability Assessment & Exploit Validation | Nessus → Metasploit → remediation (CVE-2011-2523) | Write-up |
-| 04 | Network Reconnaissance with Nmap | Host discovery → enumeration → OS detection | Write-up |
-| 05 | Nmap Scanning & Firewall Evasion Lab | EVE-NG, NSE, evasion techniques | Lab |
-| 06 | Wireless Network Security Auditing Lab | Wifite, aircrack-ng, hashcat, PMKID/WPS, WPA3 remediation | Lab |
-| 07 | Router WireGuard Remote Access (TP-Link GE230) | WireGuard, split/full tunnel, DNS/MTU | Built |
-| 08 | Enterprise Network Simulation & Design | Packet Tracer, VLANs, routing, ACLs | Lab |
-| 09 | Kali Linux Provisioning & Hardening | Rufus, partitioning, GRUB, least privilege | Lab |
-| 10 | Automation & Scripting Frameworks | Python, Bash | Tooling |
-| 11 | Cloud Security & OSINT Reconnaissance | GCP/IAM, Maltego | Lab |
-| 12 | Secure CCTV / NVR Private Cloud | ONVIF/RTSP, NVR, network segmentation | In progress |
-| 13 | Windows Trojan Incident Response (2022) | Containment, eradication, recovery | Case study |
+- **JACG-2300:** Python release candidate for a security-reviewed gateway, with automated tests and restricted deployment status.
+- **Mark 2000:** Earlier self-hosted Ubuntu/Xray remote-access system.
+- **TP-Link GE230 WireGuard:** Router VPN troubleshooting and cross-network remote connectivity.
+- **Windows Trojan recovery:** Personal 2022 incident-response experience.
+- **Kali, Nmap, networking, wireless, cloud, CCTV:** Practice, methodology or roadmap, each labelled according to its evidence.
 
-Full write-ups for each project are on the live site (expand any project card).
+Original gateway scripts and a private handover archive are **not automatically safe to post publicly**. Review them for keys, endpoints and personal data before any repository publication.
 
-## Tech
+## Site structure
 
-Static single-page site — plain HTML and CSS, no build step. Fonts via Google Fonts. Hosted on GitHub Pages.
+- `index.html`: Complete mobile-responsive portfolio page with semantic sections, CSS graphic, accessible navigation and a small client-side status filter.
+- `tests/test_site.py`: Dependency-free structural and content checks.
+- `.github/workflows/site-check.yml`: Runs the checks on pushes and pull requests.
+- `PORTFOLIO_REVIEW.md`: Change log and remaining actions.
+
+No production VPN infrastructure, private client profiles, device credentials or CCTV feeds are hosted in this website repository.
+
+## Run locally
+
+Open `index.html` in a browser, or run a local server:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000. Run the checks with:
+
+```sh
+python3 -m unittest discover -s tests -v
+```
 
 ## Contact
 
-- **LinkedIn:** https://www.linkedin.com/in/jubair-ahammed-tushar
-- **Email:** jubairahmedtushar@gmail.com
+- GitHub: https://github.com/JubairAhammedTushar
+- LinkedIn: https://www.linkedin.com/in/jubair-ahammed-tushar
+- Email: jubairahmedtushar@gmail.com
+
+This is an educational and personal portfolio, not a production-system status dashboard.
