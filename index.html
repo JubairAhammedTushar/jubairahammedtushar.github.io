@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jubair Ahammed Tushar — Security Portfolio</title>
+<meta name="description" content="Cybersecurity portfolio of Jubair Ahammed Tushar — aspiring penetration tester in Cardiff. Documented, authorised lab projects.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+html{color-scheme:dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Committed dark theme: pure-black ground with a blue→violet gradient accent. Mono for labels/tags, Plex Sans for prose. */
+:root{
+  --bg:#000000; --surface:#0c0f18; --surface-2:#141a28; --fg:#f4f6fb; --muted:#9aa6c9;
+  --border:#212943; --accent:#5b8cff; --accent-2:#a855f7; --pink:#d6409f;
+  --grad:linear-gradient(90deg,#5b8cff,#a855f7);
+  --good:#46c47c; --warn:#e0a44a;
+  --f-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --maxw:1020px; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:
+    radial-gradient(1100px 600px at 100% -8%, rgba(168,85,247,.20), transparent 58%),
+    radial-gradient(820px 520px at 86% 6%, rgba(91,140,255,.16), transparent 55%),
+    var(--bg);
+  background-attachment:fixed;
+  color:var(--fg);font-family:var(--f-sans);line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{text-wrap:balance;line-height:1.14;margin:0}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:20px}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{padding-block:clamp(44px,7vw,80px)}
+section+section{border-top:1px solid var(--border)}
+.nav{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:13px;gap:14px}
+.brand{font-family:var(--f-sans);font-weight:700;letter-spacing:-.01em;font-size:.98rem;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navlinks{display:flex;gap:22px;align-items:center;font-size:.9rem}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--fg)}
+.navlinks a.nl{display:none}
+@media(min-width:640px){.navlinks a.nl{display:inline}}
+.hero{padding-top:clamp(48px,8vw,84px);position:relative}
+.hero h1{font-size:clamp(2.3rem,7vw,4rem);font-weight:700;letter-spacing:-.025em}
+.hero .role{font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--muted);margin-top:16px;max-width:60ch}
+.hero .role b{color:var(--fg);font-weight:600}
+.rule{height:2px;width:220px;max-width:70%;margin-top:22px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--accent))}
+.loc{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);margin-top:20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(91,140,255,.22)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{font-family:var(--f-mono);font-size:.85rem;text-decoration:none;padding:11px 16px;border-radius:10px;border:1px solid var(--border);display:inline-flex;align-items:center;gap:8px;color:var(--fg);background:var(--surface)}
+.btn.pri{background:var(--grad);color:#fff;border-color:transparent;font-weight:600}
+.btn:hover{border-color:var(--accent)}
+.btn.pri:hover{filter:brightness(1.08)}
+h2.sec{font-size:clamp(1.5rem,4vw,2rem);font-weight:600;margin-top:10px;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:66ch;margin-top:14px}
+.prose p{max-width:66ch;margin:14px 0 0;color:var(--muted)}
+.prose p b,.prose p strong{color:var(--fg)}
+.skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media(max-width:780px){.skillgrid{grid-template-columns:1fr}}
+.skill{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+.skill h3{font-size:.8rem;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.1em;font-weight:600;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.tag{font-family:var(--f-mono);font-size:.76rem;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;padding:4px 9px;color:var(--fg)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+@media(max-width:820px){.projects{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--grad);opacity:.9}
+.card .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}
+.card .idx{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
+.status{font-family:var(--f-mono);font-size:.68rem;font-weight:600;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.status.live{color:var(--good);border:1px solid rgba(70,196,124,.4)}
+.status.lab{color:var(--warn);border:1px solid rgba(224,164,74,.4)}
+.card h3{font-size:1.18rem;font-weight:600}
+.card>p{color:var(--muted);font-size:.93rem;margin:0}
+.card .tags{margin-top:2px}
+.writeup{margin-top:6px;border-top:1px solid var(--border);padding-top:12px}
+.writeup summary{cursor:pointer;font-family:var(--f-mono);font-size:.78rem;color:var(--accent);list-style:none;display:flex;align-items:center;gap:7px;user-select:none}
+.writeup summary::-webkit-details-marker{display:none}
+.writeup summary::before{content:"▸";display:inline-block;transition:transform .2s}
+.writeup[open] summary::before{transform:rotate(90deg)}
+.writeup .body{margin-top:14px;color:var(--muted);font-size:.9rem;display:flex;flex-direction:column;gap:12px}
+.writeup .body h4{color:var(--fg);font-size:.74rem;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.09em;margin:4px 0 0}
+.writeup .body ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.writeup .body code{font-family:var(--f-mono);font-size:.84em;background:var(--surface-2);padding:1px 5px;border-radius:4px;color:var(--fg);word-break:break-word}
+.ethics{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent-2);border-radius:12px;padding:20px 22px}
+.ethics p{margin:10px 0 0;max-width:70ch;color:var(--muted)}
+.contact .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:20px}
+.copy{font-family:var(--f-mono);font-size:.85rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;display:inline-flex;gap:10px;align-items:center;cursor:pointer;color:var(--fg)}
+.copy:hover{border-color:var(--accent)}
+.copy .st{font-size:.75rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+footer{color:var(--muted);font-family:var(--f-mono);font-size:.76rem;padding-block:30px;border-top:1px solid var(--border);text-align:center}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:no-preference){.dot{animation:pulse 2.4s ease-in-out infinite}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(91,140,255,.22)}50%{box-shadow:0 0 0 7px transparent}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <span class="brand">Jubair Ahammed Tushar</span>
+  <div class="navlinks">
+    <a class="nl" href="#about">About</a>
+    <a class="nl" href="#skills">Skills</a>
+    <a class="nl" href="#projects">Projects</a>
+    <a class="nl" href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1>Jubair Ahammed Tushar</h1>
+  <p class="role"><b>Aspiring penetration tester</b> and cybersecurity student, building a hands-on career in offensive security and network engineering.</p>
+  <div class="rule"></div>
+  <div class="loc"><span class="dot"></span> Cardiff, Wales &nbsp;·&nbsp; Open to roles &amp; degree apprenticeships</div>
+  <div class="cta">
+    <a class="btn pri" href="https://github.com/JubairAhammedTushar" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn" href="https://www.linkedin.com/in/jubair-ahammed-tushar" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn" href="#projects">View projects</a>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap prose">
+  <span class="eyebrow">About</span>
+  <h2 class="sec">Business-aware, lab-driven, honest about scope.</h2>
+  <p>I'm completing a one-year Diploma in Cyber Security &amp; IT Infrastructure at DIPTI. The programme is intensive and lab-driven — covering network security, Linux administration, ethical hacking, penetration testing, cloud security and digital forensics.</p>
+  <p>Beyond coursework I run my own home lab, where I practise network reconnaissance, vulnerability assessment and secure infrastructure — including building a multi-protocol VPN gateway and writing up what I learn. Before security, I spent several years in IT management and digital marketing, which means I understand how a business actually runs and where its real risk sits.</p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <span class="eyebrow">Capabilities</span>
+  <h2 class="sec">Tools &amp; techniques</h2>
+  <div class="skillgrid">
+    <div class="skill"><h3>Offensive &amp; recon</h3><div class="tags">
+      <span class="tag">Nmap</span><span class="tag">Metasploit</span><span class="tag">Nessus</span><span class="tag">Burp Suite</span><span class="tag">Wifite / aircrack-ng</span><span class="tag">Maltego / OSINT</span><span class="tag">hashcat</span>
+    </div></div>
+    <div class="skill"><h3>Networking</h3><div class="tags">
+      <span class="tag">CCNA R&amp;S</span><span class="tag">OSPF / EIGRP</span><span class="tag">VLANs &amp; ACLs</span><span class="tag">NAT</span><span class="tag">iptables / nftables</span><span class="tag">Wireshark</span>
+    </div></div>
+    <div class="skill"><h3>Systems, cloud &amp; code</h3><div class="tags">
+      <span class="tag">Kali Linux</span><span class="tag">Ubuntu Server</span><span class="tag">WireGuard / Xray</span><span class="tag">Docker</span><span class="tag">GCP / IAM</span><span class="tag">Python</span><span class="tag">React</span><span class="tag">Bash</span>
+    </div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <span class="eyebrow">Selected work · authorised lab</span>
+  <h2 class="sec">Projects</h2>
+  <p class="lead">Every project below was carried out on systems I own or am authorised to test. Expand any card for the full write-up — objective, method, findings and remediation.</p>
+  <div class="projects">
+
+    <article class="card">
+      <div class="top"><span class="idx">01</span><span class="status live">● built</span></div>
+      <h3>Mark 2000 — Self-Hosted VPN &amp; Network Management Server</h3>
+      <p>A multi-protocol VPN/proxy gateway on Ubuntu, with a management layer I built from scratch.</p>
+      <div class="tags"><span class="tag">Xray-core</span><span class="tag">Python</span><span class="tag">React</span><span class="tag">iptables</span><span class="tag">TCP BBR</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Objective</h4>
+        <p>Build a self-hosted, privacy-focused VPN and multi-user proxy gateway on a spare Ubuntu laptop, with central management of users and devices — replacing an unreliable commercial VPN and enabling secure remote access to my own network.</p>
+        <h4>Architecture</h4>
+        <ul>
+          <li><b>Core engine:</b> Xray-core providing multiple inbounds — VLESS + REALITY (XTLS Vision), VLESS over WebSocket/gRPC, VMess, Trojan+TLS and Shadowsocks — for protocol flexibility and traffic obfuscation.</li>
+          <li><b>Management layer:</b> a Python backend for user/device creation, config generation and monitoring, with a React dashboard front-end; Bash scripts automate deployment and generate per-device QR profiles and subscription links.</li>
+          <li><b>Performance tuning:</b> TCP BBR congestion control with the <code>fq</code> queue discipline, tuned socket buffers and MTU/MSS clamping per path.</li>
+          <li><b>Perimeter:</b> <code>iptables</code> rules restricting exposure and isolating user traffic; local proxies bound to <code>127.0.0.1</code>.</li>
+        </ul>
+        <h4>What I learned</h4>
+        <ul>
+          <li>Orchestration is harder than the crypto: most failures came from services competing for the same ports and non-atomic config reloads, not from the VPN protocols themselves.</li>
+          <li>A security review of my own early scripts flagged real hazards to fix in any future build — a self-signed Trojan cert with <code>allowInsecure=1</code>, plaintext secrets in backups, and management UIs that must never be exposed to the public internet.</li>
+        </ul>
+        <h4>Status &amp; honesty note</h4>
+        <p>Working self-built project on my own hardware. Throughput and multi-user capacity figures are not independently benchmarked, and I'd re-engineer the identified weaknesses before treating it as production-grade.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">02</span><span class="status live">● write-up</span></div>
+      <h3>Network Reconnaissance with Nmap</h3>
+      <p>A full discovery-to-fingerprint workflow on my own network, with defensive takeaways.</p>
+      <div class="tags"><span class="tag">Nmap</span><span class="tag">Kali</span><span class="tag">Recon</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Objective</h4>
+        <p>Carry out the reconnaissance phases of a security assessment against my own home network, moving from "what hosts exist?" to "what is this host and what does it run?".</p>
+        <h4>Method</h4>
+        <ul>
+          <li><b>Host discovery:</b> <code>nmap -sn 192.168.0.0/24</code> — a ping sweep with no port scan, mapping the live footprint quietly.</li>
+          <li><b>Service enumeration:</b> <code>nmap -sV</code> against a target host, exporting to XML.</li>
+          <li><b>OS detection:</b> <code>sudo nmap -O</code> for fingerprinting.</li>
+          <li><b>Aggressive pass:</b> <code>sudo nmap -A</code> combining version/OS detection, default NSE scripts and traceroute.</li>
+        </ul>
+        <h4>Findings</h4>
+        <ul>
+          <li>Six live hosts, including the gateway and an Apple device exposing only ports <code>49152</code> and <code>62078</code> (the <code>iphone-sync</code> service gave the device type away before any OS scan).</li>
+          <li>OS detection returned slightly different guesses between the <code>-O</code> and <code>-A</code> runs — a genuine lesson in the limits of fingerprinting a hardened device with a small exposed surface.</li>
+        </ul>
+        <h4>Defensive takeaways</h4>
+        <ul>
+          <li>Minimise attack surface — every closed/filtered port is one less thing an attacker learns.</li>
+          <li>Reconnaissance is noisy: ping sweeps and sequential probes are detectable with IDS/IPS and firewall logging.</li>
+          <li>Segment the network so a single foothold reaches as little as possible.</li>
+        </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">03</span><span class="status live">● write-up</span></div>
+      <h3>Vulnerability Assessment &amp; Exploit Validation</h3>
+      <p>Nessus → investigation → authorised Metasploit validation → remediation, on a deliberately vulnerable lab host.</p>
+      <div class="tags"><span class="tag">Nessus</span><span class="tag">Metasploit</span><span class="tag">Reporting</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Objective</h4>
+        <p>Run a full assessment workflow against an intentionally vulnerable Metasploitable 2 host in an isolated lab — discovery, investigation of a finding, controlled validation, and remediation.</p>
+        <h4>Method &amp; findings</h4>
+        <ul>
+          <li><b>Discovery:</b> a Tenable Nessus credentialed scan surfaced numerous findings; I focused on the FTP service, identified as <code>vsftpd 2.3.4</code> (plugin 52703).</li>
+          <li><b>Investigation:</b> that exact release carries a well-documented backdoor introduced into its distribution in 2011 — <b>CVE-2011-2523</b> — a classic software supply-chain compromise.</li>
+          <li><b>Validation:</b> the matching Metasploit module (<code>exploit/unix/ftp/vsftpd_234_backdoor</code>, rank <i>excellent</i>) confirmed the finding was a true positive and returned a shell.</li>
+          <li><b>Proof:</b> verified root-level access on the target (<code>hostname</code>, <code>id</code>, <code>/etc/passwd</code>), then stopped — no destructive actions.</li>
+        </ul>
+        <h4>Remediation recommended</h4>
+        <ul>
+          <li>Remove/upgrade the backdoored vsftpd build immediately; install only from trusted repositories with checksum/signature verification.</li>
+          <li>Prefer SFTP/FTPS over plain FTP; decommission the other legacy clear-text services (Telnet, rlogin, rsh) the scan surfaced.</li>
+          <li>Establish ongoing vulnerability management — regular authenticated scans and a patch cadence.</li>
+        </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">04</span><span class="status lab">● lab</span></div>
+      <h3>Nmap Scanning &amp; Firewall Evasion Lab</h3>
+      <p>An extensive EVE-NG lab across the full range of Nmap techniques.</p>
+      <div class="tags"><span class="tag">Nmap</span><span class="tag">EVE-NG</span><span class="tag">NSE</span><span class="tag">Firewall evasion</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Scope</h4>
+        <ul>
+          <li><b>Host discovery:</b> TCP SYN/ACK, UDP, ARP, ICMP, IP-protocol, timestamp and address-mask ping.</li>
+          <li><b>Port scans:</b> SYN (half-open), Connect, UDP, ACK, Window, Maimon, Xmas, Null, FIN and Idle scans — and what each reveals about port state and filtering.</li>
+          <li><b>Detection:</b> service/version, OS, aggressive scanning and the NSE scripting engine (banner, HTTP enumeration, FTP checks).</li>
+          <li><b>Firewall evasion:</b> packet fragmentation, MTU sizing, decoys, source IP/port spoofing and MAC spoofing — with the detection/defence angle for each.</li>
+        </ul>
+        <h4>Environment</h4>
+        <p>Built and run in an EVE-NG network emulation lab so scans ran against virtual hosts and firewalls I controlled end to end.</p>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">05</span><span class="status lab">● lab</span></div>
+      <h3>Wireless Network Security Auditing Lab</h3>
+      <p>Authorised WPA/WPA2 auditing with Wifite and the aircrack-ng suite, plus blue-team fixes.</p>
+      <div class="tags"><span class="tag">Wifite</span><span class="tag">aircrack-ng</span><span class="tag">hashcat</span><span class="tag">WPS / PMKID</span><span class="tag">WPA3</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Objective</h4>
+        <p>Assess the security posture of WPA/WPA2 wireless networks in an authorised lab — evaluating pre-shared-key strength, WPS configuration and management-frame protection.</p>
+        <h4>Method</h4>
+        <ul>
+          <li>Identified the wireless NIC, killed interfering daemons (<code>airmon-ng check kill</code>) and enabled monitor mode.</li>
+          <li>Enumerated BSSIDs, channels, encryption and connected clients with <code>wifite</code>.</li>
+          <li>Captured clientless RSN <b>PMKIDs</b> and full <b>4-way EAPOL handshakes</b> (via targeted deauthentication).</li>
+          <li>Tested <b>WPS Pixie-Dust / PIN</b> resistance on legacy routers.</li>
+          <li>Audited captured <code>.cap</code>/<code>.22000</code> material offline with <code>aircrack-ng</code>/<code>hashcat</code> against wordlists.</li>
+        </ul>
+        <h4>Blue-team remediations</h4>
+        <ul>
+          <li>Disable WPS entirely (defeats Pixie-Dust and PIN brute force).</li>
+          <li>Enable 802.11w management-frame protection to mitigate forged deauth attacks.</li>
+          <li>Move from WPA2-PSK to WPA3-SAE, or 802.1X/RADIUS, and enforce 16+ character passphrases.</li>
+        </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">06</span><span class="status lab">● lab</span></div>
+      <h3>Enterprise Network Simulation &amp; Design</h3>
+      <p>Multi-subnet topologies in Cisco Packet Tracer, plus hands-on physical lab work.</p>
+      <div class="tags"><span class="tag">Packet Tracer</span><span class="tag">VLANs</span><span class="tag">Routing</span><span class="tag">ACLs</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Scope</h4>
+        <ul>
+          <li>Designed and simulated multi-subnet enterprise topologies in Cisco Packet Tracer.</li>
+          <li>Configured VLAN segmentation and inter-VLAN routing, static and dynamic routing, and ACLs to model secure enterprise architectures.</li>
+          <li>Reinforced with hands-on physical lab work — switches, routers, cabling, IPv4 subnetting and DHCP/DNS — as part of my CCNA studies (96% / A+).</li>
+        </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">07</span><span class="status live">● tooling</span></div>
+      <h3>Automation &amp; Scripting Frameworks</h3>
+      <p>Python and Bash tooling to automate system administration and diagnostics.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Automation</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Scope</h4>
+        <ul>
+          <li>Custom Python and Bash scripts to automate repetitive system-administration tasks.</li>
+          <li>Automation for configuration backups, network diagnostics and system health checks.</li>
+          <li>Supporting tooling for the Mark 2000 gateway — deployment, config generation and profile exports.</li>
+        </ul>
+      </div></details>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="idx">08</span><span class="status lab">● lab</span></div>
+      <h3>Cloud Security &amp; OSINT Reconnaissance</h3>
+      <p>Secure credential handling on GCP and OSINT mapping with Maltego.</p>
+      <div class="tags"><span class="tag">GCP</span><span class="tag">IAM</span><span class="tag">Maltego</span><span class="tag">OSINT</span></div>
+      <details class="writeup"><summary>Read the write-up</summary><div class="body">
+        <h4>Scope</h4>
+        <ul>
+          <li><b>Cloud security:</b> practised secure handling of service-account and API keys and IAM least-privilege access on Google Cloud Platform.</li>
+          <li><b>OSINT:</b> used Maltego to map digital footprints and visualise relationships between entities and infrastructure during the reconnaissance phase.</li>
+        </ul>
+      </div></details>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="ethics"><div class="wrap">
+  <div class="ethics">
+    <span class="eyebrow">Scope &amp; authorisation</span>
+    <p>Every technique and tool shown here was practised exclusively on systems I own or am explicitly authorised to test, inside an isolated home lab. Nothing was run against third-party systems or networks.</p>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <span class="eyebrow">Contact</span>
+  <h2 class="sec">Let's talk.</h2>
+  <p class="lead">Open to cybersecurity roles, SOC and penetration-testing positions, and degree apprenticeships across Cardiff and the UK — on-site, hybrid or remote.</p>
+  <div class="row">
+    <button class="copy" id="copyEmail" data-mail="jubairahmedtushar@gmail.com">jubairahmedtushar@gmail.com <span class="st" id="copySt">copy</span></button>
+    <a class="btn" href="https://www.linkedin.com/in/jubair-ahammed-tushar" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn" href="https://github.com/JubairAhammedTushar" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Built by Jubair Ahammed Tushar · Cardiff, Wales</div></footer>
+
+<script>
+(function(){
+  var c=document.getElementById('copyEmail'),st=document.getElementById('copySt');
+  c.addEventListener('click',function(){var m=c.getAttribute('data-mail');
+    function done(){st.textContent='copied ✓';setTimeout(function(){st.textContent='copy';},1600);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(done).catch(sel);}else{sel();}
+    function sel(){var r=document.createRange();r.selectNodeContents(c);var s=window.getSelection();s.removeAllRanges();s.addRange(r);done();}
+  });
+})();
+</script>
+</body>
+</html>
