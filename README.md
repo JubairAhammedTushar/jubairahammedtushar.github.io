@@ -14,18 +14,23 @@ I'm completing a one-year Diploma in Cyber Security & IT Infrastructure at DIPTI
 
 ## Projects
 
-| # | Project | Focus |
-|---|---------|-------|
-| 01 | Mark 2000 — Self-Hosted VPN & Network Management Server | Xray-core, Python/React dashboard, iptables, TCP BBR |
-| 02 | Network Reconnaissance with Nmap | Host discovery → enumeration → OS detection |
-| 03 | Vulnerability Assessment & Exploit Validation | Nessus → Metasploit → remediation |
-| 04 | Nmap Scanning & Firewall Evasion Lab | EVE-NG, NSE, evasion techniques |
-| 05 | Wireless Network Security Auditing Lab | Wifite, aircrack-ng, hashcat, WPA3 remediation |
-| 06 | Enterprise Network Simulation & Design | Packet Tracer, VLANs, routing, ACLs |
-| 07 | Automation & Scripting Frameworks | Python, Bash |
-| 08 | Cloud Security & OSINT Reconnaissance | GCP/IAM, Maltego |
+| # | Project | Focus | Status |
+|---|---------|-------|--------|
+| 01 | Mark 2000 — Self-Hosted VPN & Network Management Server | Xray-core, Python/React dashboard, iptables, TCP BBR | Built |
+| 02 | JACG-2300 — Secure Gateway Rebuild | Privilege separation, RBAC/MFA, nftables, transactional changes | Release candidate |
+| 03 | Vulnerability Assessment & Exploit Validation | Nessus → Metasploit → remediation (CVE-2011-2523) | Write-up |
+| 04 | Network Reconnaissance with Nmap | Host discovery → enumeration → OS detection | Write-up |
+| 05 | Nmap Scanning & Firewall Evasion Lab | EVE-NG, NSE, evasion techniques | Lab |
+| 06 | Wireless Network Security Auditing Lab | Wifite, aircrack-ng, hashcat, PMKID/WPS, WPA3 remediation | Lab |
+| 07 | Router WireGuard Remote Access (TP-Link GE230) | WireGuard, split/full tunnel, DNS/MTU | Built |
+| 08 | Enterprise Network Simulation & Design | Packet Tracer, VLANs, routing, ACLs | Lab |
+| 09 | Kali Linux Provisioning & Hardening | Rufus, partitioning, GRUB, least privilege | Lab |
+| 10 | Automation & Scripting Frameworks | Python, Bash | Tooling |
+| 11 | Cloud Security & OSINT Reconnaissance | GCP/IAM, Maltego | Lab |
+| 12 | Secure CCTV / NVR Private Cloud | ONVIF/RTSP, NVR, network segmentation | In progress |
+| 13 | Windows Trojan Incident Response (2022) | Containment, eradication, recovery | Case study |
 
-Full write-ups for each project are on the live site.
+Full write-ups for each project are on the live site (expand any project card).
 
 ## Tech
 
