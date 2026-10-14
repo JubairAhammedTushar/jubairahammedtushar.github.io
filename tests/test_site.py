@@ -85,7 +85,7 @@ class SiteTests(unittest.TestCase):
     def test_analytics_opt_in_without_fake_tracking(self):
         loader = (ROOT / "analytics.js").read_text(encoding="utf-8")
         self.assertIn('src="analytics.js"', SOURCE)
-        self.assertIn('const CLOUDFLARE_SITE_TOKEN = "";', loader)
+        self.assertIn('const CLOUDFLARE_SITE_TOKEN = "31877450ec0e458abd862806710218dd";', loader)
         self.assertIn("static.cloudflareinsights.com/beacon.min.js", loader)
         self.assertIn('data-cf-beacon', loader)
         self.assertIn("if (!/^[a-f0-9]{32}$/i.test(token)) return;", loader)
