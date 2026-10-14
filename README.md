@@ -49,6 +49,24 @@ Then open http://localhost:8000. Run the checks with:
 python3 -m unittest discover -s tests -v
 ```
 
+## Visitor analytics (Cloudflare Web Analytics)
+
+This website supports **free, privacy-first Cloudflare Web Analytics**. It can show visits/page views, referrers and countries through your private Cloudflare dashboard. It does not provide a list of named visitors, and numbers are estimates rather than an exact count of distinct people.
+
+**Activation is not automatic:** the Cloudflare site token must be created in the site owner's Cloudflare dashboard. Until it is supplied, `analytics.js` makes no tracking requests and the site remains functional.
+
+### Activate tracking
+
+1. Sign in at https://dash.cloudflare.com and open **Web Analytics** (not Workers & Pages).
+2. Choose **Add a site**, enter **`jubairahammedtushar.github.io`** as the hostname and confirm.
+3. Under **Manage site**, copy the JavaScript snippet. Find the `token` value inside `data-cf-beacon` (typically 32 hexadecimal characters).
+4. Edit `analytics.js` and replace the empty `CLOUDFLARE_SITE_TOKEN` value with that public **site token only**; do not paste your account API token, email, password, login cookies or Cloudflare API keys.
+5. Commit and wait for GitHub Pages to deploy. Open the website in a browser without an ad blocker, then review visitor and pageview trends under **Cloudflare → Web Analytics** after a few minutes. Data prior to activation cannot be reconstructed.
+
+This domain stays on GitHub Pages. You do **not** need to move DNS, proxy through Cloudflare, or buy a plan. The visitor statistics are visible in your Cloudflare dashboard, not publicly on the website. If the expected metrics do not appear, verify that you registered the exact hostname, disabled aggressive tracking blockers for testing, and entered the correct site token.
+
+Reference: https://developers.cloudflare.com/web-analytics/get-started/
+
 ## Contact
 
 - GitHub: https://github.com/JubairAhammedTushar
