@@ -272,5 +272,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 })();
   document.querySelectorAll("[data-filter]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.getAttribute("data-filter"),visible=0;document.querySelectorAll(".card[data-stage]").forEach(function(card){var show=group==="all"||card.getAttribute("data-stage")===group;card.hidden=!show;if(show)visible++;});document.querySelectorAll("[data-filter]").forEach(function(item){var active=item===btn;item.classList.toggle("active",active);item.setAttribute("aria-pressed",String(active));});document.getElementById("filterCount").textContent="Showing "+visible+" "+(visible===1?"entry":"entries");});});
 </script>
+<!-- Privacy-first visitor analytics. Tracking starts only after a site token is configured. -->
+<script defer src="analytics.js"></script>
 </body>
 </html>
