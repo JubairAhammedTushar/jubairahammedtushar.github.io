@@ -55,6 +55,9 @@ This website supports **free, privacy-first Cloudflare Web Analytics**. It can s
 
 **Activation is not automatic:** the Cloudflare site token must be created in the site owner's Cloudflare dashboard. Until it is supplied, `analytics.js` makes no tracking requests and the site remains functional.
 
+
+**Activated 14 October 2026:** The public Cloudflare Web Analytics site token is now configured in `analytics.js`. This is a website identifier, not a secret or account API token. Check the Cloudflare Web Analytics dashboard for data beginning after activation; previously untracked visits cannot be counted.
+
 ### Activate tracking
 
 1. Sign in at https://dash.cloudflare.com and open **Web Analytics** (not Workers & Pages).
