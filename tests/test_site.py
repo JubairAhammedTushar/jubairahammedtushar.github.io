@@ -82,6 +82,15 @@ class SiteTests(unittest.TestCase):
         self.assertIn('name="description"', SOURCE)
         self.assertIn("JACG-2300", SOURCE)
 
+    def test_analytics_opt_in_without_fake_tracking(self):
+        loader = (ROOT / "analytics.js").read_text(encoding="utf-8")
+        self.assertIn('src="analytics.js"', SOURCE)
+        self.assertIn('const CLOUDFLARE_SITE_TOKEN = "";', loader)
+        self.assertIn("static.cloudflareinsights.com/beacon.min.js", loader)
+        self.assertIn('data-cf-beacon', loader)
+        self.assertIn("if (!/^[a-f0-9]{32}$/i.test(token)) return;", loader)
+        self.assertNotIn("googletagmanager.com", SOURCE)
+
     def test_no_known_sensitive_material(self):
         for needle in ("-----BEGIN PRIVATE KEY-----", "-----BEGIN OPENSSH PRIVATE KEY-----",
                        "REALITY_PRIVATE=", "wg-server.key", "192.168.0.18", "10.5.5.1"):
