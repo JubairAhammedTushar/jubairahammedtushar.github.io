@@ -1,5 +1,5 @@
 /*
- * Cloudflare Web Analytics for jubairahammedtushar.github.io
+ * Cloudflare Web Analytics for jubairahammedtushar.com
  * Status: tracking enabled using the Cloudflare Web Analytics site token.
  * The site token is public configuration, NOT a Cloudflare API key.
  * Registration: Cloudflare dashboard -> Web Analytics -> Add a site.
@@ -10,7 +10,7 @@
 
   // Set to the public Web Analytics site token supplied by Cloudflare.
   // The site token is public; this is NOT an API credential.
-  const CLOUDFLARE_SITE_TOKEN = "31877450ec0e458abd862806710218dd";
+  const CLOUDFLARE_SITE_TOKEN = "26318f2ca4074a669e923e404958f836";
   const token = CLOUDFLARE_SITE_TOKEN.trim();
 
   if (!/^[a-f0-9]{32}$/i.test(token)) return;
