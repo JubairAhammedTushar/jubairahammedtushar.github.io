@@ -58,10 +58,12 @@ This website supports **free, privacy-first Cloudflare Web Analytics**. It can s
 
 **Activated 14 October 2026:** The public Cloudflare Web Analytics site token is now configured in `analytics.js`. This is a website identifier, not a secret or account API token. Check the Cloudflare Web Analytics dashboard for data beginning after activation; previously untracked visits cannot be counted.
 
+**Moved 15 November 2026:** When the site moved to jubairahammedtushar.com, `analytics.js` switched to a new site token registered for that hostname. Cloudflare only accepts beacons from the hostname a token was registered for, so the old jubairahammedtushar.github.io site in the dashboard keeps its history but no longer receives visits.
+
 ### Activate tracking
 
 1. Sign in at https://dash.cloudflare.com and open **Web Analytics** (not Workers & Pages).
-2. Choose **Add a site**, enter **`jubairahammedtushar.github.io`** as the hostname and confirm.
+2. Choose **Add a site**, enter **`jubairahammedtushar.com`** as the hostname and choose **Enable with JS Snippet installation** (the automatic option only works when traffic is proxied through Cloudflare; this site is served directly by GitHub Pages).
 3. Under **Manage site**, copy the JavaScript snippet. Find the `token` value inside `data-cf-beacon` (typically 32 hexadecimal characters).
 4. Edit `analytics.js` and replace the empty `CLOUDFLARE_SITE_TOKEN` value with that public **site token only**; do not paste your account API token, email, password, login cookies or Cloudflare API keys.
 5. Commit and wait for GitHub Pages to deploy. Open the website in a browser without an ad blocker, then review visitor and pageview trends under **Cloudflare → Web Analytics** after a few minutes. Data prior to activation cannot be reconstructed.
