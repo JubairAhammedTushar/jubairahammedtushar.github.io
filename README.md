@@ -1,6 +1,6 @@
 # Jubair Ahammed Tushar — Cybersecurity portfolio
 
-**Website:** https://jubairahammedtushar.github.io/
+**Website:** https://jubairahammedtushar.com/ (the old address, jubairahammedtushar.github.io, redirects there)
 
 A static GitHub Pages portfolio focused on cybersecurity learning, secure Linux infrastructure, networking, personal incident recovery and documented engineering work.
 
