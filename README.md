@@ -15,7 +15,7 @@ I distinguish what I have actually worked on from release candidates, reconstruc
 | Source-backed RC1 | Recoverable code, documentation and local automated test evidence exist. Production acceptance is not established. |
 | Practice / learning / planned | Training topics or lab workflows; no claim that every exercise is completed or independently verified. |
 
-As of 17 November 2026, the site includes 15 entries: two running lab projects, four historical/source-supported personal work entries, one release-candidate project (now superseded) and eight practice/roadmap entries.
+As of 17 November 2026, the site has six entries: two running lab projects (Cipherline and the home SOC), the history of the gateway, router WireGuard remote access, a personal malware recovery case, and diploma training with lab practice. Planned labs are one "Next" line rather than entries.
 
 ## Projects to explore
 
@@ -27,7 +27,9 @@ An **Experience** section lists work history: Trainee Manager at Popeyes (Cardif
 - **Mark 2000:** Earlier self-hosted Ubuntu/Xray remote-access system.
 - **TP-Link GE230 WireGuard:** Router VPN troubleshooting and cross-network remote connectivity.
 - **Windows Trojan recovery:** Personal 2022 incident-response experience.
-- **Kali, Nmap, networking, wireless, cloud, CCTV:** Practice, methodology or roadmap, each labelled according to its evidence.
+- **Diploma training:** CCNA, Linux and ethical hacking module results, plus Kali, Nmap and Metasploitable practice.
+
+Also here: `detections/` (the Wazuh decoders and rules and the router Mail Log receiver, with tests that run in GitHub Actions), `cv/` (a one-page CV), and a lab map drawn inline in the page. The VPN's protocols are deliberately not listed.
 
 Original gateway scripts and a private handover archive are **not automatically safe to post publicly**. Review them for keys, endpoints and personal data before any repository publication.
 

@@ -1,0 +1,266 @@
+<!-- Cipherline lab: network monitoring rules (installed by the console: Lab > SOC > Network monitoring).
+     This file is replaced on every refresh; put your own rules in local_rules.xml. IDs 100200-100299. -->
+<group name="cipherline,">
+
+  <!-- ===== Firewall (ufw) on every machine ===== -->
+  <rule id="100200" level="3">
+    <if_sid>5100</if_sid>
+    <match>[UFW BLOCK]|[UFW LIMIT BLOCK]</match>
+    <description>Firewall: blocked $(protocol) from $(srcip) to port $(dstport)</description>
+    <group>firewall_drop,cipherline_fw,</group>
+  </rule>
+
+  <rule id="100201" level="3">
+    <if_sid>4100</if_sid>
+    <match>[UFW BLOCK]|[UFW LIMIT BLOCK]</match>
+    <description>Firewall: blocked $(protocol) from $(srcip) to port $(dstport)</description>
+    <group>firewall_drop,cipherline_fw,</group>
+  </rule>
+
+  <rule id="100202" level="10" frequency="8" timeframe="300" ignore="900">
+    <if_matched_group>cipherline_fw</if_matched_group>
+    <same_source_ip />
+    <description>Firewall: many blocked connections from $(srcip) (a scan?)</description>
+    <group>cipherline_fw_scan,</group>
+  </rule>
+
+  <!-- ===== The VPN console: sign-ins and changes (events.json on the VPN gateway) ===== -->
+  <rule id="100210" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="cipherline">^console$</field>
+    <description>Console: $(cl_event)</description>
+    <group>cipherline_console,</group>
+  </rule>
+
+  <rule id="100211" level="5">
+    <if_sid>100210</if_sid>
+    <field name="cl_event">^login_failed$</field>
+    <description>Console: failed sign-in for $(cl_user)</description>
+    <group>authentication_failed,cipherline_console,</group>
+  </rule>
+
+  <rule id="100212" level="7">
+    <if_sid>100210</if_sid>
+    <field name="cl_event" type="pcre2">^(?:login_refused|lab_unlock_failed)$</field>
+    <description>Console: refused $(cl_user) ($(cl_detail))</description>
+    <group>authentication_failed,cipherline_console,</group>
+  </rule>
+
+  <rule id="100213" level="3">
+    <if_sid>100210</if_sid>
+    <field name="cl_event">^login$</field>
+    <description>Console: $(cl_user) signed in</description>
+    <group>authentication_success,cipherline_console,</group>
+  </rule>
+
+  <rule id="100214" level="5">
+    <if_sid>100210</if_sid>
+    <field name="cl_event" type="pcre2">^(?:two_step_disabled|password_reset|password_changed|api_key_created|passkey_added|passkey_removed|recovery_codes_renewed|lab_unlocked)$</field>
+    <description>Console: security change by $(cl_user): $(cl_event)</description>
+    <group>cipherline_console,cipherline_security_change,</group>
+  </rule>
+
+  <rule id="100215" level="3">
+    <if_sid>100210</if_sid>
+    <description>Console: $(cl_event) by $(cl_user)</description>
+    <group>cipherline_console,</group>
+  </rule>
+
+  <rule id="100216" level="10" frequency="6" timeframe="300" ignore="600">
+    <if_matched_sid>100211</if_matched_sid>
+    <same_source_ip />
+    <description>Console: repeated failed sign-ins from $(srcip)</description>
+    <group>authentication_failures,cipherline_console,</group>
+  </rule>
+
+  <!-- ===== VPN sessions as the console's monitor records them ===== -->
+  <rule id="100220" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="cipherline">^vpn$</field>
+    <description>VPN: $(cl_event)</description>
+    <group>cipherline_vpn,</group>
+  </rule>
+
+  <rule id="100221" level="3">
+    <if_sid>100220</if_sid>
+    <field name="cl_event">^session_start$</field>
+    <description>VPN: $(cl_device) connected ($(cl_proto))</description>
+    <group>cipherline_vpn,</group>
+  </rule>
+
+  <rule id="100222" level="3">
+    <if_sid>100220</if_sid>
+    <field name="cl_event">^session_end$</field>
+    <description>VPN: $(cl_device) disconnected ($(cl_proto))</description>
+    <group>cipherline_vpn,</group>
+  </rule>
+
+  <!-- ===== The VPN gateway's own alerts (internet link, services) ===== -->
+  <rule id="100225" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="cipherline">^gateway$</field>
+    <description>Gateway: $(cl_detail)</description>
+    <group>cipherline_gateway,</group>
+  </rule>
+
+  <rule id="100226" level="8">
+    <if_sid>100225</if_sid>
+    <field name="cl_event">^alert_firing$</field>
+    <field name="cl_severity">^critical$</field>
+    <description>Gateway (critical): $(cl_detail)</description>
+    <group>cipherline_gateway,</group>
+  </rule>
+
+  <rule id="100227" level="5">
+    <if_sid>100225</if_sid>
+    <field name="cl_event">^alert_firing$</field>
+    <description>Gateway: $(cl_detail)</description>
+    <group>cipherline_gateway,</group>
+  </rule>
+
+  <rule id="100228" level="3">
+    <if_sid>100225</if_sid>
+    <description>Gateway: $(cl_detail) ($(cl_event))</description>
+    <group>cipherline_gateway,</group>
+  </rule>
+
+  <!-- ===== Pi-hole, every 10 minutes from the services VM ===== -->
+  <rule id="100230" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="cipherline">^pihole$</field>
+    <description>Pi-hole: $(cl_queries) lookups, $(cl_blocked) blocked in 10 minutes</description>
+    <group>cipherline_pihole,</group>
+  </rule>
+
+  <rule id="100231" level="8">
+    <if_sid>100230</if_sid>
+    <field name="cl_event">^down$</field>
+    <description>Pi-hole is not answering: $(cl_detail)</description>
+    <group>cipherline_pihole,</group>
+  </rule>
+
+  <!-- ===== Traefik on the services VM (it logs only refused and failed requests) ===== -->
+  <rule id="100240" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="DownstreamStatus" type="pcre2">^\d{3}$</field>
+    <field name="RequestHost" type="pcre2">.</field>
+    <description>Web: $(RequestHost) answered $(DownstreamStatus)</description>
+    <group>web,cipherline_web,</group>
+  </rule>
+
+  <rule id="100241" level="5">
+    <if_sid>100240</if_sid>
+    <field name="DownstreamStatus" type="pcre2">^40[13]$</field>
+    <description>Web: $(RequestHost) refused $(ClientHost) ($(DownstreamStatus))</description>
+    <group>web,access_denied,cipherline_web,cipherline_web_refused,</group>
+  </rule>
+
+  <rule id="100242" level="5">
+    <if_sid>100240</if_sid>
+    <field name="DownstreamStatus" type="pcre2">^5\d\d$</field>
+    <description>Web: $(RequestHost) failed with $(DownstreamStatus)</description>
+    <group>web,cipherline_web,</group>
+  </rule>
+
+  <rule id="100243" level="3">
+    <if_sid>100240</if_sid>
+    <description>Web: $(RequestHost) answered $(DownstreamStatus) to $(ClientHost)</description>
+    <group>web,cipherline_web,cipherline_web_refused,</group>
+  </rule>
+
+  <rule id="100244" level="10" frequency="20" timeframe="120" ignore="600">
+    <if_matched_group>cipherline_web_refused</if_matched_group>
+    <same_field>ClientHost</same_field>
+    <description>Web: many refused requests from $(ClientHost) (password guessing or a scan?)</description>
+    <group>web,cipherline_web,</group>
+  </rule>
+
+  <!-- ===== Suricata on the VPN gateway: Wazuh's own rule 86601 gives every alert level 3; these raise the serious ones ===== -->
+  <rule id="100250" level="10">
+    <if_sid>86601</if_sid>
+    <field name="alert.severity">^1$</field>
+    <description>Suricata (high): $(alert.signature)</description>
+    <group>ids,cipherline_ids,</group>
+  </rule>
+
+  <rule id="100251" level="7">
+    <if_sid>86601</if_sid>
+    <field name="alert.severity">^2$</field>
+    <description>Suricata (medium): $(alert.signature)</description>
+    <group>ids,cipherline_ids,</group>
+  </rule>
+
+  <!-- ===== Vaultwarden (passwords) on the services VM ===== -->
+  <rule id="100270" level="0">
+    <decoded_as>cipherline-vaultwarden</decoded_as>
+    <description>Vaultwarden log message</description>
+    <group>cipherline_vault_log,</group>
+  </rule>
+
+  <rule id="100271" level="5">
+    <if_sid>100270</if_sid>
+    <match>Username or password is incorrect</match>
+    <description>Vaultwarden: wrong password for $(dstuser) from $(srcip)</description>
+    <group>authentication_failed,cipherline_vault,cipherline_vault_fail,</group>
+  </rule>
+
+  <rule id="100272" level="7">
+    <if_sid>100270</if_sid>
+    <match type="pcre2">(?i)invalid (?:totp|two.factor|2fa)</match>
+    <description>Vaultwarden: wrong two-step code from $(srcip)</description>
+    <group>authentication_failed,cipherline_vault,cipherline_vault_fail,</group>
+  </rule>
+
+  <rule id="100273" level="10" frequency="5" timeframe="300" ignore="600">
+    <if_matched_group>cipherline_vault_fail</if_matched_group>
+    <same_source_ip />
+    <description>Vaultwarden: repeated failed sign-ins from $(srcip)</description>
+    <group>authentication_failures,cipherline_vault,</group>
+  </rule>
+
+  <!-- ===== The home router's log (TP-Link: remote syslog, or Mail Log received on the SOC) ===== -->
+  <!-- Wazuh tries top-level rules highest level first, so a low-level rule here would lose to its generic syslog rules
+       (2501 "authentication failure" at 5, 2502 at 10 ...) on lines like "Login failed". This top-level rule sits
+       above them and only ever matches the router's own lines; each line then ends in one of the rules below
+       (highest level first, 100260 last). -->
+  <rule id="100259" level="11" noalert="1">
+    <decoded_as>cipherline-router</decoded_as>
+    <description>Router log line</description>
+    <group>cipherline_router,</group>
+  </rule>
+
+  <rule id="100262" level="8">
+    <if_sid>100259</if_sid>
+    <match type="pcre2">(?i)\b(?:dos|ddos|flood|attack|port ?scan|ping of death)\b</match>
+    <description>Router: attack reported: $(cl_msg)</description>
+    <group>attack,cipherline_router,</group>
+  </rule>
+
+  <rule id="100261" level="7">
+    <if_sid>100259</if_sid>
+    <match type="pcre2">(?i)(?:log ?in|sign ?in|authenticat|password).{0,40}(?:fail|invalid|incorrect|wrong|denied)</match>
+    <description>Router: failed sign-in on the router: $(cl_msg)</description>
+    <group>authentication_failed,cipherline_router,</group>
+  </rule>
+
+  <rule id="100263" level="5">
+    <if_sid>100259</if_sid>
+    <match type="pcre2">(?i)(?:wan|ppp|pppoe|internet).{0,40}(?:down|disconnect|lost|fail|terminat)</match>
+    <description>Router: the internet connection dropped: $(cl_msg)</description>
+    <group>cipherline_router,</group>
+  </rule>
+
+  <rule id="100264" level="3">
+    <if_sid>100259</if_sid>
+    <match type="pcre2">(?i)(?:log ?in|sign ?in).{0,40}(?:success|logged)</match>
+    <description>Router: someone signed in to the router: $(cl_msg)</description>
+    <group>authentication_success,cipherline_router,</group>
+  </rule>
+
+  <rule id="100260" level="3">
+    <if_sid>100259</if_sid>
+    <description>Router: $(cl_msg)</description>
+    <group>cipherline_router,</group>
+  </rule>
+
+</group>

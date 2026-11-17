@@ -63,14 +63,38 @@ class SiteTests(unittest.TestCase):
             self.assertIn(href_id, self.doc.ids, f"Missing destination #{href_id}")
 
     def test_projects_are_honestly_classified(self):
-        self.assertEqual(len(self.doc.projects), 15)
-        self.assertEqual(self.doc.projects.count("built"), 6)
-        self.assertEqual(self.doc.projects.count("candidate"), 1)
-        self.assertEqual(self.doc.projects.count("practice"), 8)
-        self.assertIn('data-filter="all">All entries <span>15</span>', SOURCE)
-        self.assertIn("Showing 15 entries", SOURCE)
+        self.assertEqual(len(self.doc.projects), 6)
+        self.assertEqual(self.doc.projects.count("built"), 4)
+        self.assertEqual(self.doc.projects.count("history"), 1)
+        self.assertEqual(self.doc.projects.count("training"), 1)
         numbers = re.findall(r'PROJECT / (\d\d)', SOURCE)
-        self.assertEqual(numbers, [f"{n:02d}" for n in range(1, 16)])
+        self.assertEqual(numbers, [f"{n:02d}" for n in range(1, 7)])
+        self.assertIn("<b>Next:</b>", SOURCE)
+        self.assertNotIn("data-filter", SOURCE)
+
+    def test_lab_map_and_code(self):
+        self.assertIn('<figure class="lab-map">', SOURCE)
+        self.assertIn('aria-labelledby="labmapTitle labmapDesc"', SOURCE)
+        self.assertIn("tree/main/detections", SOURCE)
+        for f in ("detections/README.md", "detections/wazuh/cipherline_rules.xml", "detections/wazuh/cipherline_decoders.xml",
+                  "detections/router-mail/router-mail.py", "detections/router-mail/test-router-mail.py"):
+            self.assertTrue((ROOT / f).is_file(), f)
+        import xml.dom.minidom
+        for f in ("cipherline_rules.xml", "cipherline_decoders.xml"):
+            text = (ROOT / "detections" / "wazuh" / f).read_text(encoding="utf-8")
+            xml.dom.minidom.parseString("<root>" + text + "</root>")   # Wazuh files have several top-level elements
+        rules = (ROOT / "detections" / "wazuh" / "cipherline_rules.xml").read_text(encoding="utf-8")
+        self.assertIn('<rule id="100259" level="11" noalert="1">', rules)
+
+    def test_cv_is_linked_and_present(self):
+        self.assertEqual(SOURCE.count('href="cv/Jubair-Ahammed-Tushar-CV.pdf" download'), 2)
+        pdf = ROOT / "cv" / "Jubair-Ahammed-Tushar-CV.pdf"
+        self.assertTrue(pdf.is_file())
+        self.assertTrue(pdf.read_bytes().startswith(b"%PDF"))
+
+    def test_vpn_protocols_stay_private(self):
+        for name in ("AmneziaWG", "Hysteria", "VLESS", "VMess", "Shadowsocks", "REALITY", "Xray"):
+            self.assertNotIn(name, SOURCE)
 
     def test_running_lab_states_its_limits(self):
         self.assertIn("JAT Cipherline 2300", SOURCE)
