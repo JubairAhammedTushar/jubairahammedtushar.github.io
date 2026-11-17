@@ -6,14 +6,14 @@ A static GitHub Pages portfolio focused on cybersecurity learning, a self-hosted
 
 ## Portfolio policy
 
-I distinguish what I have actually worked on from release candidates, reconstructed practice history and planned labs. A card appearing on the website is **not** a claim that the entire project is deployed, tested or professionally assessed.
+I distinguish what I have actually built and run from concepts, reconstructed practice history and planned labs. A card appearing on the website is **not** a claim that the entire project is deployed, tested or professionally assessed.
 
 | Status | What the label means |
 | --- | --- |
 | Running · self-reported | Deployed and in use; evidence is my own screenshots and logs, with no independent audit. |
 | Reported build / hands-on | Personal experience reported in previous work. Historical logs are not always preserved. |
-| Source-backed RC1 | Recoverable code, documentation and local automated test evidence exist. Production acceptance is not established. |
-| Practice / learning / planned | Training topics or lab workflows; no claim that every exercise is completed or independently verified. |
+| History | Earlier systems and concepts that led to the current projects; a concept was never built. |
+| Training & results | Diploma module results and lab practice; no claim that every exercise is preserved or independently verified. |
 
 As of 17 November 2026, the site has six entries: two running lab projects (Cipherline and the home SOC), the history of the gateway, router WireGuard remote access, a personal malware recovery case, and diploma training with lab practice. Planned labs are one "Next" line rather than entries.
 
@@ -21,7 +21,7 @@ As of 17 November 2026, the site has six entries: two running lab projects (Ciph
 
 - **JAT Cipherline 2300:** A Proxmox home lab in Bangladesh, run remotely from Cardiff: multi-protocol VPN, Nextcloud, Vaultwarden, Pi-hole, a Kali VM and one master console. Built with AI-assisted engineering.
 - **Home SOC:** Wazuh with custom decoders, rules and a self-test; Splunk dashboards; Suricata IDS.
-- **JACG-2300:** Python release candidate for a security-reviewed gateway; superseded by JAT Cipherline 2300.
+- **JACG-2300:** a design concept for a safer gateway; never built. Its ideas were built in JAT Cipherline 2300.
 
 An **Experience** section lists work history: Trainee Manager at Popeyes (Cardiff, 2026), and earlier marketing, IT and sales roles in Dhaka (2021–2026).
 - **Mark 2000:** Earlier self-hosted Ubuntu/Xray remote-access system.

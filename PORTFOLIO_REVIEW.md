@@ -59,4 +59,4 @@ The PR contains only public portfolio copy, styling, the client-side filter and 
 - Added a one-page CV (`cv/`), built only from facts the owner has stated; no phone number or address.
 - Removed the list of VPN protocols from the page; a test keeps them out.
 - Still to add: redacted screenshots (Wazuh rule checks, a Splunk dashboard, the console) once the owner supplies them.
-
+- Correction from the owner: JACG-2300 was a **concept**, never built or run. The history card, About, README and CV now say so; the earlier description of it as a source-backed release candidate (from the October review) was wrong.
