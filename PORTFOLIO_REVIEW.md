@@ -48,3 +48,4 @@ The PR contains only public portfolio copy, styling, the client-side filter and 
 - The training card now gives the module results in the first person (CCNA 96 and Linux 93, both A+; Ethical Hacking final 25/25) and still does not claim a Cisco certification.
 - No addresses, hostnames of private services, endpoints, keys or user data are published; the site tests now also reject home-network and Tailscale addresses and private service hostnames.
 - Router detection fixes and the Mail Log receiver are described as built and tested and being rolled out; update the wording once they are live.
+- Added an **Experience** section (04): Trainee Manager at Popeyes, Cardiff (Team Member from April 2026, now in management training), then the Dhaka roles from 2021 to February 2026. The restaurant branch and colleagues’ names are deliberately left out.

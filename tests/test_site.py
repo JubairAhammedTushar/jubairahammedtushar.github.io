@@ -78,6 +78,11 @@ class SiteTests(unittest.TestCase):
         self.assertIn("AI coding assistant", SOURCE)
         self.assertNotIn("The user previously reported", SOURCE)
 
+    def test_experience_is_current(self):
+        self.assertIn('id="experience"', SOURCE)
+        self.assertIn("Trainee Manager", SOURCE)
+        self.assertEqual(SOURCE.count('class="job"'), 4)
+
     def test_accessibility_and_mobile_basics(self):
         self.assertEqual(self.doc.headings.count("h1"), 1)
         self.assertIn('class="skip"', SOURCE)

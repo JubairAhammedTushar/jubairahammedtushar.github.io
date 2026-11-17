@@ -167,6 +167,13 @@ section{padding-block:clamp(64px,8vw,110px)}
 .filter span{opacity:.72}.filter-count{font:.72rem var(--f-mono);color:var(--muted);margin:20px 0 0}
 .ethics{border-left-color:#86d7da;background:#0d1821}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.jobs{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
+.job{display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px;background:linear-gradient(145deg,rgba(17,27,38,.9),rgba(9,15,22,.98));border:1px solid #243545;border-radius:14px;padding:22px 26px}
+.job .when{font:.76rem var(--f-mono);color:#8ccaf0;padding-top:5px;letter-spacing:.04em}
+.job h3{font-size:1.12rem;font-weight:600;letter-spacing:-.01em}
+.job .org{margin:5px 0 0;color:#c6d4df;font-size:.92rem}
+.job p.what{margin:9px 0 0;color:var(--muted);font-size:.92rem;line-height:1.7;max-width:66ch}
+@media(max-width:670px){.job{grid-template-columns:1fr;gap:6px;padding:20px}}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero h1{max-width:15ch}.hero-panel{max-width:650px}.about-grid{grid-template-columns:1fr;gap:24px}.skillgrid{grid-template-columns:1fr}.projects{grid-template-columns:1fr 1fr}}
 @media(max-width:670px){.nav .wrap{align-items:center}.brand{font-size:.82rem}.navlinks{gap:12px;font-size:.75rem}.navlinks a.nl{display:none}.hero{padding-top:62px}.hero h1{font-size:clamp(2.7rem,12vw,4.3rem)}.hero-panel .panel-graphic{height:200px}.projects{grid-template-columns:1fr}.card{padding:23px}.panel-base{padding:20px}.filters{gap:7px}.filter{padding:9px 12px;font-size:.7rem}.status{white-space:normal;text-align:right}.about-grid .sec{font-size:2.15rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover,.card:hover{transform:none}}
@@ -181,6 +188,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <a class="nl" href="#about">About</a>
     <a class="nl" href="#skills">Skills</a>
     <a class="nl" href="#projects">Projects</a>
+    <a class="nl" href="#experience">Experience</a>
     <a class="nl" href="#contact">Contact</a>
   </div>
 </div></nav>
@@ -240,6 +248,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 13</span><span class="status practice">Learning roadmap</span></div><h3>Cloud Security &amp; OSINT — Learning Roadmap</h3><p>Future demonstrable labs in cloud identity, least privilege and ethical open-source research.</p><div class="tags"><span class="tag">IAM</span><span class="tag">Cloud</span><span class="tag">OSINT</span><span class="tag">Audit</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Proposed cloud exercise: Build a small low-cost sandbox with tightly scoped IAM policies.</li><li>Proposed OSINT exercise: Investigate only owned or consented assets and record data provenance.</li><li>Deliverables: Redacted policy diffs, reproducible tests and a short security report.</li><li>No verified GCP IAM or Maltego lab artifacts have been retrieved; completed claims have been removed.</li></ul></div></details></article>
 <article class="card" data-stage="practice"><div class="top"><span class="idx">PROJECT / 14</span><span class="status practice">In planning</span></div><h3>Private CCTV / NVR — Secure Design</h3><p>A proposed private recording system that keeps camera access separated from public-facing services.</p><div class="tags"><span class="tag">Network isolation</span><span class="tag">NVR</span><span class="tag">Storage</span><span class="tag">Backup</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Reported hardware: Imou Ranger 2 Dual camera; NVR/cloud integration is not verified.</li><li>Design questions: Local streams, segmented access, secure backups, retention and UPS impact.</li><li>Risk: Never expose camera feeds or administrative panels directly to the public internet.</li><li>Next step: Confirm device-supported protocols and test within a restricted network.</li></ul></div></details></article>
 <article class="card" data-stage="built"><div class="top"><span class="idx">PROJECT / 15</span><span class="status built">User-reported case</span></div><h3>Windows Trojan Recovery — Personal Case</h3><p>A 2022 personal incident involving detection, containment, Windows reinstallation and account recovery.</p><div class="tags"><span class="tag">Windows</span><span class="tag">Containment</span><span class="tag">Recovery</span><span class="tag">MFA</span></div><details class="writeup"><summary>Read project notes</summary><div class="body"><h4>Scope & evidence</h4><ul><li>Context: Assisted another person with suspected Windows malware and affected online accounts.</li><li>Reported actions: Windows Security detection, device isolation, OS reinstallation and account recovery.</li><li>The exact malware signature, forensic acquisition and post-recovery validation were not preserved.</li><li>This is documented personal troubleshooting experience, not a professional DFIR engagement.</li></ul></div></details></article></div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <span class="eyebrow">04 / Experience</span>
+  <h2 class="sec">Work so far</h2>
+  <p class="lead">Leadership, customer-facing and IT roles alongside my studies.</p>
+  <ol class="jobs">
+    <li class="job"><div class="when">2026 – present</div><div><h3>Trainee Manager</h3><p class="org">Popeyes Louisiana Kitchen (PLK Chicken UK Ltd) · Cardiff</p><p class="what">Joined as a Team Member in April 2026 and moved into the restaurant’s management training, learning to run shifts: leading the team, customer service, and the restaurant’s sales, labour and service targets.</p></div></li>
+    <li class="job"><div class="when">May 2023 – Feb 2026</div><div><h3>CMO, IT Manager &amp; Salesperson</h3><p class="org">Al Aria Perfume Gallery · Dhaka</p><p class="what">Marketing, the business’s IT and sales.</p></div></li>
+    <li class="job"><div class="when">2022 – 2023</div><div><h3>Social Media Manager &amp; Security Specialist</h3><p class="org">Band Lalon · Dhaka</p></div></li>
+    <li class="job"><div class="when">2021 – 2022</div><div><h3>Digital Marketing Manager</h3><p class="org">Sharhan Bayezid Agro &amp; Organic Foods · Dhaka</p></div></li>
+  </ol>
 </div></section>
 
 <section id="ethics"><div class="wrap">

@@ -22,6 +22,8 @@ As of 17 November 2026, the site includes 15 entries: two running lab projects, 
 - **JAT Cipherline 2300:** A Proxmox home lab in Bangladesh, run remotely from Cardiff: multi-protocol VPN, Nextcloud, Vaultwarden, Pi-hole, a Kali VM and one master console. Built with AI-assisted engineering.
 - **Home SOC:** Wazuh with custom decoders, rules and a self-test; Splunk dashboards; Suricata IDS.
 - **JACG-2300:** Python release candidate for a security-reviewed gateway; superseded by JAT Cipherline 2300.
+
+An **Experience** section lists work history: Trainee Manager at Popeyes (Cardiff, 2026), and earlier marketing, IT and sales roles in Dhaka (2021–2026).
 - **Mark 2000:** Earlier self-hosted Ubuntu/Xray remote-access system.
 - **TP-Link GE230 WireGuard:** Router VPN troubleshooting and cross-network remote connectivity.
 - **Windows Trojan recovery:** Personal 2022 incident-response experience.
