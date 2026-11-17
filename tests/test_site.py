@@ -63,10 +63,25 @@ class SiteTests(unittest.TestCase):
             self.assertIn(href_id, self.doc.ids, f"Missing destination #{href_id}")
 
     def test_projects_are_honestly_classified(self):
-        self.assertEqual(len(self.doc.projects), 13)
-        self.assertEqual(self.doc.projects.count("built"), 4)
+        self.assertEqual(len(self.doc.projects), 15)
+        self.assertEqual(self.doc.projects.count("built"), 6)
         self.assertEqual(self.doc.projects.count("candidate"), 1)
         self.assertEqual(self.doc.projects.count("practice"), 8)
+        self.assertIn('data-filter="all">All entries <span>15</span>', SOURCE)
+        self.assertIn("Showing 15 entries", SOURCE)
+        numbers = re.findall(r'PROJECT / (\d\d)', SOURCE)
+        self.assertEqual(numbers, [f"{n:02d}" for n in range(1, 16)])
+
+    def test_running_lab_states_its_limits(self):
+        self.assertIn("JAT Cipherline 2300", SOURCE)
+        self.assertIn("no independent audit or penetration test", SOURCE)
+        self.assertIn("AI coding assistant", SOURCE)
+        self.assertNotIn("The user previously reported", SOURCE)
+
+    def test_experience_is_current(self):
+        self.assertIn('id="experience"', SOURCE)
+        self.assertIn("Trainee Manager", SOURCE)
+        self.assertEqual(SOURCE.count('class="job"'), 4)
 
     def test_accessibility_and_mobile_basics(self):
         self.assertEqual(self.doc.headings.count("h1"), 1)
@@ -93,7 +108,8 @@ class SiteTests(unittest.TestCase):
 
     def test_no_known_sensitive_material(self):
         for needle in ("-----BEGIN PRIVATE KEY-----", "-----BEGIN OPENSSH PRIVATE KEY-----",
-                       "REALITY_PRIVATE=", "wg-server.key", "192.168.0.18", "10.5.5.1"):
+                       "REALITY_PRIVATE=", "wg-server.key", "192.168.0.18", "10.5.5.1",
+                       "192.168.0.", "100.64.", "ts.net", "console.jubairahammedtushar", "vault.jubairahammedtushar"):
             self.assertNotIn(needle, SOURCE)
         self.assertNotRegex(SOURCE, r"(?i)(password|private[_-]?key)\s*[:=]\s*['\"][^'\"]{8,}")
 

@@ -38,3 +38,14 @@ Repository: `JubairAhammedTushar/jubairahammedtushar.github.io`, original `main`
 ## Security
 
 The PR contains only public portfolio copy, styling, the client-side filter and tests. It does not publish gateway scripts, private credentials, real network addresses or confidential apprenticeship CRM records. The deployment of JACG-2300 remains unverified and separate from this website.
+
+## Update — 17 November 2026
+
+- Added **JAT Cipherline 2300** (project 01) and the **Home SOC** (project 02) as running lab projects, labelled “self-reported”: the evidence is the owner’s own console screenshots and logs, and there is no independent audit or penetration test.
+- Both entries state that they were built with AI-assisted engineering (the owner sets requirements, security rules and acceptance tests, and deploys, tests and operates each release; much of the code was written with an AI coding assistant).
+- JACG-2300 RC1 is marked as superseded: its ideas carried into Cipherline, and the RC1 installers were never deployed.
+- Hero panel, About, Focus tags and metadata now reflect the running lab; the About section names the DIPTI diploma (final examinations in autumn 2026) and the AI Agent Builder Bootcamp (September 2025).
+- The training card now gives the module results in the first person (CCNA 96 and Linux 93, both A+; Ethical Hacking final 25/25) and still does not claim a Cisco certification.
+- No addresses, hostnames of private services, endpoints, keys or user data are published; the site tests now also reject home-network and Tailscale addresses and private service hostnames.
+- Router detection fixes and the Mail Log receiver are described as built and tested and being rolled out; update the wording once they are live.
+- Added an **Experience** section (04): Trainee Manager at Popeyes, Cardiff (Team Member from April 2026, now in management training), then the Dhaka roles from 2021 to February 2026. The restaurant branch and colleagues’ names are deliberately left out.
