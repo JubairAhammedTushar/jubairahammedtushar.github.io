@@ -1,0 +1,40 @@
+<!-- Cipherline lab: decoders for the network monitoring (installed by the console: Lab > SOC > Network monitoring).
+     This file is replaced on every refresh; put your own decoders in local_decoder.xml. -->
+
+<!-- ufw blocks as journald gives them (no kernel timestamp, which Wazuh's own ufw decoder needs):
+     kernel: [UFW BLOCK] IN=ens18 OUT= MAC=.. SRC=203.0.113.50 DST=192.168.1.31 LEN=60 .. PROTO=TCP SPT=40000 DPT=22 .. -->
+<decoder name="cipherline-ufw">
+  <parent>kernel</parent>
+  <prematch type="pcre2">^\[UFW [A-Z ]+\] IN=</prematch>
+  <regex type="pcre2">^\[(UFW [A-Z ]+)\] IN=(\S*) OUT=(\S*) .*?SRC=(\S+) DST=(\S+) .*?PROTO=(\w+)</regex>
+  <order>action,cl_in,cl_out,srcip,dstip,protocol</order>
+</decoder>
+
+<decoder name="cipherline-ufw">
+  <parent>kernel</parent>
+  <regex type="pcre2" offset="after_regex">^ SPT=(\d+) DPT=(\d+)</regex>
+  <order>srcport,dstport</order>
+</decoder>
+
+<!-- Vaultwarden's log file on the services VM:
+     [2026-11-16 18:00:00.000][vaultwarden::api::identity][ERROR] Username or password is incorrect. Try again. IP: 100.64.0.9. Username: a@b.c. -->
+<decoder name="cipherline-vaultwarden">
+  <prematch type="pcre2">^\[\d{4}-\d\d-\d\d[ T][\d:.]+\]\[vaultwarden::</prematch>
+</decoder>
+
+<decoder name="cipherline-vaultwarden-login">
+  <parent>cipherline-vaultwarden</parent>
+  <regex type="pcre2">IP: ([0-9A-Fa-f:.]+?)\.? Username: (\S+?)\.?$</regex>
+  <order>srcip,dstuser</order>
+</decoder>
+
+<!-- The home router's own log, written on the SOC with this program name (by rsyslog, or by the Mail Log receiver) -->
+<decoder name="cipherline-router">
+  <program_name>^cipherline-router$</program_name>
+</decoder>
+
+<decoder name="cipherline-router-fields">
+  <parent>cipherline-router</parent>
+  <regex type="pcre2">^(.{1,240})</regex>
+  <order>cl_msg</order>
+</decoder>

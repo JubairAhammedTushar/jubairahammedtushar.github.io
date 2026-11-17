@@ -49,3 +49,14 @@ The PR contains only public portfolio copy, styling, the client-side filter and 
 - No addresses, hostnames of private services, endpoints, keys or user data are published; the site tests now also reject home-network and Tailscale addresses and private service hostnames.
 - Router detection fixes and the Mail Log receiver are described as built and tested and being rolled out; update the wording once they are live.
 - Added an **Experience** section (04): Trainee Manager at Popeyes, Cardiff (Team Member from April 2026, now in management training), then the Dhaka roles from 2021 to February 2026. The restaurant branch and colleagues’ names are deliberately left out.
+
+## Update — 17 November 2026 (later)
+
+- Headline now states the fact: “I run a home SOC from 8,000 km away”, with the five-VM lab in the intro.
+- Cut to six entries: Cipherline, Home SOC, gateway history (Mark 2000 and JACG-2300 RC1 merged), GE230 WireGuard, Windows trojan recovery, diploma training (Kali, Nmap and Metasploitable practice folded in). Planned labs became one “Next” line; the filter was removed.
+- Added an inline SVG map of the lab (no addresses, ports or private service names).
+- Published `detections/`: Wazuh decoders and rules, the router Mail Log receiver and its 36 tests (run in GitHub Actions). Example addresses were changed to generic ones.
+- Added a one-page CV (`cv/`), built only from facts the owner has stated; no phone number or address.
+- Removed the list of VPN protocols from the page; a test keeps them out.
+- Still to add: redacted screenshots (Wazuh rule checks, a Splunk dashboard, the console) once the owner supplies them.
+- Correction from the owner: JACG-2300 was a **concept**, never built or run. The history card, About, README and CV now say so; the earlier description of it as a source-backed release candidate (from the October review) was wrong.
