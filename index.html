@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jubair Ahammed Tushar | Cybersecurity, Home SOC &amp; Linux</title>
-<meta name="description" content="Cybersecurity student in Cardiff, Wales. Self-hosted VPN gateway and home SOC (Proxmox, Wazuh, Splunk) run remotely, secure networking, Linux and evidence-led security projects.">
+<meta name="description" content="Cybersecurity student in Cardiff, Wales, after seven years in business, marketing and IT roles in Dhaka. Self-hosted VPN gateway and home SOC (Proxmox, Wazuh, Splunk) run remotely, secure networking, Linux and evidence-led security projects.">
 <meta name="theme-color" content="#05070b">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jubair Ahammed Tushar | I run a home SOC from 8,000 km away">
@@ -50,8 +50,7 @@ section+section{border-top:1px solid var(--border)}
 .navlinks{display:flex;gap:22px;align-items:center;font-size:.9rem}
 .navlinks a{text-decoration:none;color:var(--muted)}
 .navlinks a:hover{color:var(--fg)}
-.navlinks a.nl{display:none}
-@media(min-width:640px){.navlinks a.nl{display:inline}}
+.navlinks a.nl{display:inline}
 .hero{padding-top:clamp(48px,8vw,84px);position:relative}
 .hero h1{font-size:clamp(2.3rem,7vw,4rem);font-weight:700;letter-spacing:-.025em}
 .hero .role{font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--muted);margin-top:16px;max-width:60ch}
@@ -182,7 +181,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .code-link{font:600 .78rem var(--f-mono);color:#9cd6f2;text-decoration:none}
 .code-link:hover{text-decoration:underline}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero h1{max-width:15ch}.hero-panel{max-width:650px}.about-grid{grid-template-columns:1fr;gap:24px}.skillgrid{grid-template-columns:1fr}.projects{grid-template-columns:1fr 1fr}}
-@media(max-width:670px){.nav .wrap{align-items:center}.brand{font-size:.82rem}.navlinks{gap:12px;font-size:.75rem}.navlinks a.nl{display:none}.hero{padding-top:62px}.hero h1{font-size:clamp(2.7rem,12vw,4.3rem)}.hero-panel .panel-graphic{height:200px}.projects{grid-template-columns:1fr}.card{padding:23px}.panel-base{padding:20px}.filters{gap:7px}.filter{padding:9px 12px;font-size:.7rem}.status{white-space:normal;text-align:right}.about-grid .sec{font-size:2.15rem}}
+@media(max-width:670px){.nav .wrap{align-items:center}.brand{font-size:.82rem}.nav .wrap{flex-wrap:wrap;row-gap:8px;padding-block:12px}.navlinks{gap:18px;font-size:.8rem;width:100%;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}.navlinks::-webkit-scrollbar{display:none}.navlinks a.nl{display:inline-block;padding:4px 0}.navlinks{-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)}.hero{padding-top:62px}.hero h1{font-size:clamp(2.7rem,12vw,4.3rem)}.hero-panel .panel-graphic{height:200px}.projects{grid-template-columns:1fr}.card{padding:23px}.panel-base{padding:20px}.filters{gap:7px}.filter{padding:9px 12px;font-size:.7rem}.status{white-space:normal;text-align:right}.about-grid .sec{font-size:2.15rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover,.card:hover{transform:none}}
 
 </style>
@@ -196,6 +195,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <a class="nl" href="#skills">Skills</a>
     <a class="nl" href="#projects">Projects</a>
     <a class="nl" href="#experience">Experience</a>
+    <a class="nl" href="#education">Education</a>
     <a class="nl" href="#contact">Contact</a>
   </div>
 </div></nav>
@@ -203,7 +203,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <main id="main"><header class="hero"><div class="wrap hero-grid"><div class="hero-copy">
   <span class="eyebrow">Cybersecurity / SOC / Linux</span>
   <h1>I run a home SOC <em>from 8,000 km away.</em></h1>
-  <p class="role">I’m <b>Jubair Ahammed Tushar</b>, a cybersecurity student and trainee restaurant manager in Cardiff. From here I run a five-VM security lab in Bangladesh: a Wazuh SOC with my own detection rules, Splunk, a VPN my family uses every day, and self-hosted services.</p>
+  <p class="role">I’m <b>Jubair Ahammed Tushar</b>, a cybersecurity student and trainee restaurant manager in Cardiff, after seven years in business, marketing and IT roles in Dhaka. From here I run a five-VM security lab in Bangladesh: a Wazuh SOC with my own detection rules, Splunk, a VPN my family uses every day, and self-hosted services.</p>
   <div class="rule"></div>
   <div class="loc"><span class="dot"></span> Cardiff, Wales <span class="sep">/</span> Seeking 2027 cyber &amp; technology apprenticeships</div>
   <div class="cta">
@@ -221,8 +221,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </div></header>
 
 <section id="about"><div class="wrap about-grid">
-  <div><span class="eyebrow">01 / About</span><h2 class="sec">Curiosity, documentation, and practical problem-solving.</h2></div>
-  <div class="prose"><p>I study cybersecurity and IT infrastructure, and I learn by building systems, troubleshooting failures and documenting what the evidence actually shows.</p><p>My main project is <strong>JAT Cipherline 2300</strong>: a self-hosted VPN gateway and home security operations lab on a Proxmox server in Bangladesh, which I run remotely from Cardiff. It grew out of earlier work on an Ubuntu VPN gateway, cross-country WireGuard connectivity and a design concept for a safer gateway (JACG-2300). I’m particularly interested in secure networking, detection engineering, offensive-security fundamentals and AI-assisted automation.</p><p>I’m studying for a <strong>Diploma in Cyber Security &amp; IT Infrastructure</strong> at DIPTI (Daffodil International Professional Training Institute), with final examinations in autumn 2026, and completed DIPTI’s AI Agent Builder Bootcamp in September 2025.</p><p>Each entry says what evidence exists. I would rather show the method and its limits than claim results I cannot demonstrate.</p></div>
+  <div><span class="eyebrow">01 / About</span><h2 class="sec">From business IT in Dhaka to a home SOC in Cardiff.</h2></div>
+  <div class="prose"><p>I’ve been curious about how networks really work since around 2014–15, when I first tried Kali Linux. For years it stayed a hobby.</p><p>From 2018 to early 2026 I worked in Dhaka: business development at Shanila Pan Products, then digital marketing at Sharhan Bayezid Agro &amp; Organic Foods, social media and account security for the band Lalon, and marketing, IT and sales at Al Aria Perfume Gallery. Looking after small businesses’ devices, social accounts and logins showed me how much depends on security done properly, and the hobby became the career I want.</p><p>Now I’m based in Cardiff. I work at Popeyes, where I joined as a Team Member in April 2026 and moved into management training, and I study for a <strong>Diploma in Cyber Security &amp; IT Infrastructure</strong> at DIPTI (Daffodil International Professional Training Institute) online alongside work.</p><p>My main project is <strong>JAT Cipherline 2300</strong>: a self-hosted VPN gateway and home security operations lab on a Proxmox server in Bangladesh, which I run remotely from Cardiff. I’m particularly interested in secure networking, detection engineering, offensive-security fundamentals and AI-assisted automation, and I’m looking for a 2027 cybersecurity degree apprenticeship.</p><p>Each entry says what evidence exists. I would rather show the method and its limits than claim results I cannot demonstrate.</p></div>
 </div></section>
 
 <section id="skills"><div class="wrap">
@@ -231,6 +231,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="skillgrid">
     <div class="skill"><h3>Secure infrastructure</h3><div class="tags"><span class="tag">Proxmox VE</span><span class="tag">Ubuntu Server</span><span class="tag">Linux</span><span class="tag">WireGuard</span><span class="tag">VPN gateways</span><span class="tag">Tailscale</span><span class="tag">Docker</span><span class="tag">Traefik</span><span class="tag">SSH</span><span class="tag">ufw / nftables</span><span class="tag">Routing / DNS</span></div></div>
     <div class="skill"><h3>Detection &amp; labs</h3><div class="tags"><span class="tag">Wazuh (SIEM)</span><span class="tag">Splunk</span><span class="tag">Suricata (IDS)</span><span class="tag">Detection rules</span><span class="tag">Pi-hole</span><span class="tag">Kali Linux</span><span class="tag">Nmap</span><span class="tag">Wireshark</span><span class="tag">Metasploitable 2</span><span class="tag">Incident response</span><span class="tag">Authorised testing</span></div></div>
+    <div class="skill"><h3>Work &amp; leadership</h3><div class="tags"><span class="tag">Shift leadership</span><span class="tag">Team training</span><span class="tag">Customer service</span><span class="tag">Sales targets</span><span class="tag">Digital marketing</span><span class="tag">SEO / SEM</span><span class="tag">Social media</span><span class="tag">Business development</span><span class="tag">Small-business IT</span></div></div>
     <div class="skill"><h3>Engineering practice</h3><div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">systemd hardening</span><span class="tag">Automated tests</span><span class="tag">Documentation</span><span class="tag">Threat modelling</span><span class="tag">Rollback design</span><span class="tag">AI-assisted coding</span></div></div>
   </div>
 </div></section>
@@ -304,12 +305,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="experience"><div class="wrap">
   <span class="eyebrow">04 / Experience</span>
   <h2 class="sec">Work so far</h2>
-  <p class="lead">Leadership, customer-facing and IT roles alongside my studies.</p>
+  <p class="lead">Seven years of business, marketing and IT work in Dhaka, and now leadership training in Cardiff.</p>
   <ol class="jobs">
-    <li class="job"><div class="when">2026 – present</div><div><h3>Trainee Manager</h3><p class="org">Popeyes Louisiana Kitchen (PLK Chicken UK Ltd) · Cardiff</p><p class="what">Joined as a Team Member in April 2026 and moved into the restaurant’s management training, learning to run shifts: leading the team, customer service, and the restaurant’s sales, labour and service targets.</p></div></li>
-    <li class="job"><div class="when">May 2023 – Feb 2026</div><div><h3>CMO, IT Manager &amp; Salesperson</h3><p class="org">Al Aria Perfume Gallery · Dhaka</p><p class="what">Marketing, the business’s IT and sales.</p></div></li>
-    <li class="job"><div class="when">2022 – 2023</div><div><h3>Social Media Manager &amp; Security Specialist</h3><p class="org">Band Lalon · Dhaka</p></div></li>
-    <li class="job"><div class="when">2021 – 2022</div><div><h3>Digital Marketing Manager</h3><p class="org">Sharhan Bayezid Agro &amp; Organic Foods · Dhaka</p></div></li>
+    <li class="job"><div class="when">Apr 2026 – present</div><div><h3>Trainee Manager</h3><p class="org">Popeyes Louisiana Kitchen (PLK Chicken UK Ltd) · Cardiff Bay</p><p class="what">Joined as a Team Member in April 2026: food preparation, hygiene and service standards in a busy drive-through. Now in the restaurant’s management training, learning to run shifts: leading the team, customer service, and the restaurant’s sales, labour and service targets.</p></div></li>
+    <li class="job"><div class="when">May 2023 – Feb 2026</div><div><h3>CMO, IT Manager &amp; Salesperson</h3><p class="org">Al Aria Perfume Gallery · Dhaka</p><p class="what">Ran marketing campaigns and digital content, looked after the business’s IT, devices and online accounts, and sold to retail and wholesale customers, including custom fragrance blends.</p></div></li>
+    <li class="job"><div class="when">Aug 2022 – Apr 2023</div><div><h3>Social Media Manager &amp; Security Specialist</h3><p class="org">Band Lalon · Dhaka</p><p class="what">Ran the band’s Spotify, YouTube, Facebook and Instagram channels and their content, and looked after the security of its online accounts.</p></div></li>
+    <li class="job"><div class="when">Apr 2020 – Feb 2023</div><div><h3>Digital Marketing Administrator, then Manager</h3><p class="org">Sharhan Bayezid Agro &amp; Organic Foods · Dhaka</p><p class="what">Campaigns, social content, SEO/SEM and reporting; promoted from Administrator to Digital Marketing Manager in July 2022.</p></div></li>
+    <li class="job"><div class="when">Oct 2018 – Feb 2020</div><div><h3>Business Development Administrator</h3><p class="org">Shanila Pan Products Co. · Bangladesh</p><p class="what">Day-to-day administration, business development and direct customer communication.</p></div></li>
+  </ol>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <span class="eyebrow">05 / Education &amp; training</span>
+  <h2 class="sec">Learning, formally and by doing</h2>
+  <p class="lead">What I’m studying, and the training behind the projects.</p>
+  <ol class="jobs">
+    <li class="job"><div class="when">In progress</div><div><h3>Diploma in Cyber Security &amp; IT Infrastructure</h3><p class="org">Daffodil International Professional Training Institute (DIPTI) · online</p><p class="what">Networking (CCNA syllabus), Linux administration, ethical hacking and penetration testing, network and cloud security, and digital forensics. First semester: A+ in CCNA (96) and Linux (93), 25/25 in the Ethical Hacking final, and top of my cohort. These are diploma module results, not a Cisco CCNA certification.</p></div></li>
+    <li class="job"><div class="when">2026</div><div><h3>TryHackMe: Offensive and Defensive Security Intro</h3><p class="org">Guided rooms on TryHackMe</p><p class="what">Introductory, authorised practice in attacking and defending systems.</p></div></li>
+    <li class="job"><div class="when">Sep 2025</div><div><h3>AI Agent Builder Bootcamp 4.0</h3><p class="org">DIPTI</p><p class="what">A one-day programme on large language models, building AI agents and automation.</p></div></li>
+    <li class="job"><div class="when">2016 – 2018</div><div><h3>HSC (Science), 2018 · SSC (Science), 2016</h3><p class="org">Dhaka, Bangladesh</p><p class="what">Higher Secondary and Secondary School Certificates, science group.</p></div></li>
   </ol>
 </div></section>
 
