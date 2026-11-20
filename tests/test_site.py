@@ -105,7 +105,12 @@ class SiteTests(unittest.TestCase):
     def test_experience_is_current(self):
         self.assertIn('id="experience"', SOURCE)
         self.assertIn("Trainee Manager", SOURCE)
-        self.assertEqual(SOURCE.count('class="job"'), 4)
+        self.assertEqual(SOURCE.count('class="job"'), 9)          # five jobs, four education and training entries
+        for role in ("Shanila Pan Products", "Sharhan Bayezid", "Band Lalon", "Al Aria Perfume Gallery", "Popeyes"):
+            self.assertIn(role, SOURCE)
+        self.assertIn('id="education"', SOURCE)
+        self.assertNotIn("final examinations in autumn 2026", SOURCE)
+        self.assertNotIn("family business", SOURCE.lower())
 
     def test_accessibility_and_mobile_basics(self):
         self.assertEqual(self.doc.headings.count("h1"), 1)

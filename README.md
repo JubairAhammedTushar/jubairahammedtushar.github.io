@@ -23,7 +23,7 @@ As of 17 November 2026, the site has six entries: two running lab projects (Ciph
 - **Home SOC:** Wazuh with custom decoders, rules and a self-test; Splunk dashboards; Suricata IDS.
 - **JACG-2300:** a design concept for a safer gateway; never built. Its ideas were built in JAT Cipherline 2300.
 
-An **Experience** section lists work history: Trainee Manager at Popeyes (Cardiff, 2026), and earlier marketing, IT and sales roles in Dhaka (2021–2026).
+An **Experience** section lists work history: Trainee Manager at Popeyes (Cardiff, 2026), and earlier business development, marketing, IT and sales roles in Dhaka (2018–2026). An **Education & training** section lists the DIPTI diploma (in progress), TryHackMe intro rooms, DIPTI's AI Agent Builder Bootcamp and school certificates.
 - **Mark 2000:** Earlier self-hosted Ubuntu/Xray remote-access system.
 - **TP-Link GE230 WireGuard:** Router VPN troubleshooting and cross-network remote connectivity.
 - **Windows Trojan recovery:** Personal 2022 incident-response experience.
