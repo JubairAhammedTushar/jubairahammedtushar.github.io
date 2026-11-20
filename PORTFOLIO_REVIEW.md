@@ -60,3 +60,15 @@ The PR contains only public portfolio copy, styling, the client-side filter and 
 - Removed the list of VPN protocols from the page; a test keeps them out.
 - Still to add: redacted screenshots (Wazuh rule checks, a Splunk dashboard, the console) once the owner supplies them.
 - Correction from the owner: JACG-2300 was a **concept**, never built or run. The history card, About, README and CV now say so; the earlier description of it as a source-backed release candidate (from the October review) was wrong.
+
+
+## Update — 20 November 2026: installer evidence and professional contact
+
+- The owner supplied two **private** JAT Cipherline installation scripts (gateway and services). They contain substantial implementation details; these raw scripts were not added to this public repository.
+- Project 01 and 02 now identify private source-backed implementation and explicitly distinguish owner-reported installation from independently verified runtime status or security audits.
+- Clarified JACG-2300 as a historical design and installer-prototype effort, not a deployed predecessor. Its source history should not be mistaken for Cipherline.
+- Replaced Gmail-only contact with the owner's selected three mailboxes: `hello@jubairahammedtushar.com`, `hello@jatushar.co.uk` and `jubairahmedtushar@gmail.com`.
+- Replaced false-positive clipboard-copy feedback: failures select the address and say it must be copied manually.
+- Preserved private VPN endpoints, client configurations and installer code outside this public repository. Live config, backup restoration and service security remain outside the scope of this static website review.
+- Updated the downloadable one-page CV to use the same three public contact addresses.
+
