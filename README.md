@@ -89,8 +89,8 @@ Reference: https://developers.cloudflare.com/web-analytics/get-started/
 
 - GitHub: https://github.com/JubairAhammedTushar
 - LinkedIn: https://www.linkedin.com/in/jubair-ahammed-tushar
-- Email: hello@jatushar.co.uk
-- Also: hello@jubairahammedtushar.com
+- Email: hello@jubairahammedtushar.com
+- Also: hello@jatushar.co.uk
 - Personal: jubairahmedtushar@gmail.com
 
 This is an educational and personal portfolio, not a production-system status dashboard.
@@ -98,3 +98,7 @@ This is an educational and personal portfolio, not a production-system status da
 ## Source-backed portfolio clarification (20 November 2026)
 
 The owner supplied the private `cipherline-setup.sh` and `cipherline-services-install.sh` installers for review. They substantiate substantial gateway, console, service, and monitoring implementation, but are **not published in this repository** because they contain operational network information. Installation and day-to-day operation are owner-reported, not independently audited. The `detections/` directory remains the public code example. Do not equate script syntax checks or the mere existence of install code with a verified running service or restoration test.
+
+## Writing update, 21 November 2026
+
+I rewrote the homepage, About section, skills summary, all eight projects, employment history, education and contact section in a more personal style. The project details say what I worked on and what I am still learning, without claiming that every security exercise has been completed or independently assessed. The lab diagram, public detection code, private backup evidence note, contact links and downloadable CV are still here.
