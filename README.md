@@ -4,6 +4,8 @@
 
 A static GitHub Pages cybersecurity portfolio covering network security, security operations, identity and access, authorised ethical hacking and incident response, built around a self-hosted lab I run remotely.
 
+**Public Cipherline project:** [https://github.com/JubairAhammedTushar/cipherline-lab](https://github.com/JubairAhammedTushar/cipherline-lab). It contains the Wazuh detection code, automated tests, security examples and architecture notes. The private installer scripts and gateway configuration are not published.
+
 ## Portfolio policy
 
 I distinguish what I have actually built and run from concepts, reconstructed practice history and planned labs. A card appearing on the website is **not** a claim that the entire project is deployed, tested or professionally assessed.
