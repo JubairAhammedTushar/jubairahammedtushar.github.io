@@ -112,6 +112,24 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn("final examinations in autumn 2026", SOURCE)
         self.assertNotIn("family business", SOURCE.lower())
 
+    def test_backup_evidence_is_private_and_scope_is_clear(self):
+        self.assertIn("Private gateway-backup evidence (21 November 2026)", SOURCE)
+        self.assertIn("no isolated restore has been performed", SOURCE)
+        self.assertIn("evidence/cipherline-backup-review.md", SOURCE)
+        note = (ROOT / "evidence" / "cipherline-backup-review.md").read_text(encoding="utf-8")
+        self.assertIn("1,043 entries", note)
+        self.assertIn("991 regular files", note)
+        self.assertIn("PRAGMA integrity_check", note)
+        self.assertIn("Nextcloud user files", note)
+        self.assertIn("Proxmox virtual-machine disk images", note)
+        self.assertIn("recoverability is **not established**", note)
+        self.assertNotIn("-----BEGIN PRIVATE KEY-----", note)
+        self.assertNotIn("-----BEGIN OPENSSH PRIVATE KEY-----", note)
+        self.assertNotIn("192.168.", note)
+        self.assertNotIn("100.64.", note)
+        self.assertNotIn("cipherline-20261121T002311Z", note)
+        self.assertFalse(list((ROOT / "evidence").glob("*.tar.gz")))
+
     def test_professional_contact_and_copy_feedback(self):
         for address in ("hello@jubairahammedtushar.com", "hello@jatushar.co.uk", "jubairahmedtushar@gmail.com"):
             self.assertIn('href="mailto:' + address + '"', SOURCE)

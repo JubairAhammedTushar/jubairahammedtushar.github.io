@@ -72,3 +72,11 @@ The PR contains only public portfolio copy, styling, the client-side filter and 
 - Preserved private VPN endpoints, client configurations and installer code outside this public repository. Live config, backup restoration and service security remain outside the scope of this static website review.
 - Updated the downloadable one-page CV to use the same three public contact addresses.
 
+
+## Update — 21 November 2026: private gateway-backup verification
+
+- Reviewed a private backup supplied by the owner; the archive contained **1,043 entries**, including **991 regular files**. No member-name traversal or symlink was observed.
+- Isolated console SQLite `quick_check` and `integrity_check` both returned `ok`; this verifies database consistency only, not a complete restore.
+- Confirmed the archive contains gateway configuration and console state, but does **not** contain Nextcloud user files or Proxmox VM disk backups. Other services' backups were not independently substantiated; separate backups may exist.
+- Added an [intentionally sanitised public evidence note](evidence/cipherline-backup-review.md) and updated the main project's evidence and limits. Explicitly state **no isolated restore was performed**.
+- **Never commit** the original archive, client profiles, keys, configuration backups or private installation scripts. A compressed `.tar.gz` is not encrypted.

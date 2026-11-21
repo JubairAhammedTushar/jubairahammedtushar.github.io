@@ -33,9 +33,11 @@ Also here: `detections/` (the Wazuh decoders and rules and the router Mail Log r
 
 Original gateway scripts and a private handover archive are **not automatically safe to post publicly**. Review them for keys, endpoints and personal data before any repository publication.
 
+A private **21 November 2026 gateway backup** was reviewed for archive readability and console database consistency. Its [sanitised evidence note](evidence/cipherline-backup-review.md) explains precisely what this review supports and what it does not. The backup is not uploaded here, is not a complete home-lab backup, and no restore has yet been demonstrated.
+
 ## Site structure
 
-- `index.html`: Complete mobile-responsive portfolio page with semantic sections, CSS graphic, accessible navigation and a small client-side status filter.
+- `index.html`: Complete mobile-responsive portfolio page with semantic sections, an inline SVG lab map, accessible navigation and evidence-labelled case studies.
 - `tests/test_site.py`: Dependency-free structural and content checks.
 - `.github/workflows/site-check.yml`: Runs the checks on pushes and pull requests.
 - `PORTFOLIO_REVIEW.md`: Change log and remaining actions.
