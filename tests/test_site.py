@@ -127,10 +127,14 @@ class SiteTests(unittest.TestCase):
         self.assertIn("no independent audit or penetration test", SOURCE)
         self.assertIn("AI coding assistant", SOURCE)
         self.assertNotIn("The user previously reported", SOURCE)
+        self.assertIn("Some exercises are completed practical work", SOURCE)
+        self.assertIn("My home lab in Bangladesh, managed from Cardiff.", SOURCE)
+        self.assertNotIn("Wifite", SOURCE)
+        self.assertNotIn("Fluxion", SOURCE)
 
     def test_experience_is_current(self):
         self.assertIn('id="experience"', SOURCE)
-        self.assertIn("Trainee Manager", SOURCE)
+        self.assertIn("Team Member, currently in management training", SOURCE)
         self.assertEqual(SOURCE.count('class="job"'), 9)          # five jobs, four education and training entries
         for role in ("Shanila Pan Products", "Sharhan Bayezid", "Band Lalon", "Al Aria Perfume Gallery", "Popeyes"):
             self.assertIn(role, SOURCE)
@@ -163,7 +167,7 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn("googletagmanager.com", SOURCE)
 
     def test_contact_lists_three_addresses(self):
-        order = ["hello@jatushar.co.uk", "hello@jubairahammedtushar.com", "jubairahmedtushar@gmail.com"]   # UK address first
+        order = ["hello@jubairahammedtushar.com", "hello@jatushar.co.uk", "jubairahmedtushar@gmail.com"]   # chosen primary first
         self.assertEqual(re.findall(r'href="mailto:([^"]+)"', SOURCE), order)
         self.assertEqual(re.findall(r'data-mail="([^"]+)"', SOURCE), order)
         # A failed copy must not claim success: it selects the address and says so.
