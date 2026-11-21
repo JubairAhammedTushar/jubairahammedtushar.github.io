@@ -157,7 +157,18 @@ for mech in (None, "PLAIN", "LOGIN", "CRAM-MD5"):
         ok = False
         print("   ", mech, e)
     t(f"accepted with {mech or 'whatever smtplib picks'}", ok)
-blob = open(LOG).read() + "".join(open(f"{STATE}/{f}").read() for f in os.listdir(STATE))
+def read_state():
+    # The receiver replaces status.json via a temporary file and a rename, so a .tmp file seen
+    # by listdir can be gone a moment later. Read whatever is there; skip files that vanished.
+    out = []
+    for f in os.listdir(STATE):
+        try:
+            with open(f"{STATE}/{f}") as fh:
+                out.append(fh.read())
+        except FileNotFoundError:
+            pass
+    return "".join(out)
+blob = open(LOG).read() + read_state()
 t("what it signed in with is not kept anywhere", PW not in blob and base64.b64encode(PW.encode()).decode() not in blob)
 
 print("== other shapes of message")
