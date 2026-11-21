@@ -21,7 +21,7 @@ As of 17 November 2026, the site has six entries: two running lab projects (Ciph
 
 - **JAT Cipherline 2300:** A Proxmox home lab in Bangladesh, run remotely from Cardiff: multi-protocol VPN, Nextcloud, Vaultwarden, Pi-hole, a Kali VM and one master console. Built with AI-assisted engineering.
 - **Home SOC:** Wazuh with custom decoders, rules and a self-test; Splunk dashboards; Suricata IDS.
-- **JACG-2300:** a design concept for a safer gateway; never built. Its ideas were built in JAT Cipherline 2300.
+- **JACG-2300:** a historical design and installer-prototype effort, not a deployed gateway. Its ideas were implemented in JAT Cipherline 2300.
 
 An **Experience** section lists work history: Trainee Manager at Popeyes (Cardiff, 2026), and earlier business development, marketing, IT and sales roles in Dhaka (2018–2026). An **Education & training** section lists the DIPTI diploma (in progress), TryHackMe intro rooms, DIPTI's AI Agent Builder Bootcamp and school certificates.
 - **Mark 2000:** Earlier self-hosted Ubuntu/Xray remote-access system.
@@ -83,6 +83,12 @@ Reference: https://developers.cloudflare.com/web-analytics/get-started/
 
 - GitHub: https://github.com/JubairAhammedTushar
 - LinkedIn: https://www.linkedin.com/in/jubair-ahammed-tushar
-- Email: jubairahmedtushar@gmail.com
+- Primary professional email: hello@jubairahammedtushar.com
+- Secondary professional email: hello@jatushar.co.uk
+- Backup email: jubairahmedtushar@gmail.com
 
 This is an educational and personal portfolio, not a production-system status dashboard.
+
+## Source-backed portfolio clarification (20 November 2026)
+
+The owner supplied the private `cipherline-setup.sh` and `cipherline-services-install.sh` installers for review. They substantiate substantial gateway, console, service, and monitoring implementation, but are **not published in this repository** because they contain operational network information. Installation and day-to-day operation are owner-reported, not independently audited. The `detections/` directory remains the public code example. Do not equate script syntax checks or the mere existence of install code with a verified running service or restoration test.

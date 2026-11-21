@@ -112,6 +112,14 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn("final examinations in autumn 2026", SOURCE)
         self.assertNotIn("family business", SOURCE.lower())
 
+    def test_professional_contact_and_copy_feedback(self):
+        for address in ("hello@jubairahammedtushar.com", "hello@jatushar.co.uk", "jubairahmedtushar@gmail.com"):
+            self.assertIn('href="mailto:' + address + '"', SOURCE)
+        self.assertNotIn("jubair@purelymail.com", SOURCE)
+        self.assertIn("selected — copy manually", SOURCE)
+        self.assertIn("Copy primary email", SOURCE)
+        self.assertNotIn("then(done).catch(sel)", SOURCE)
+
     def test_accessibility_and_mobile_basics(self):
         self.assertEqual(self.doc.headings.count("h1"), 1)
         self.assertIn('class="skip"', SOURCE)
