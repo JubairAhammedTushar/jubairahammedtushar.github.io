@@ -85,7 +85,7 @@ class SiteTests(unittest.TestCase):
         numbers = re.findall(r'PROJECT / (\d\d)', SOURCE)
         self.assertEqual(numbers, [f"{n:02d}" for n in range(1, 9)])
         self.assertEqual(SOURCE.count('<p class="domain">'), 8)   # every card names its security domain
-        self.assertIn("<b>Next:</b>", SOURCE)
+        self.assertIn("<b>What I want to learn next:</b>", SOURCE)
         self.assertNotIn("data-filter", SOURCE)
 
     def test_lab_map_and_code(self):
