@@ -2,7 +2,7 @@
 
 **Website:** https://jubairahammedtushar.com/ (the old address, jubairahammedtushar.github.io, redirects there)
 
-A static GitHub Pages portfolio focused on cybersecurity learning, a self-hosted VPN gateway and home SOC, secure Linux infrastructure, networking, personal incident recovery and documented engineering work.
+A static GitHub Pages cybersecurity portfolio covering network security, security operations, identity and access, authorised ethical hacking and incident response, built around a self-hosted lab I run remotely.
 
 ## Portfolio policy
 
@@ -13,23 +13,27 @@ I distinguish what I have actually built and run from concepts, reconstructed pr
 | Running · self-reported | Deployed and in use; evidence is my own screenshots and logs, with no independent audit. |
 | Reported build / hands-on | Personal experience reported in previous work. Historical logs are not always preserved. |
 | History | Earlier systems and concepts that led to the current projects; a concept was never built. |
-| Training & results | Diploma module results and lab practice; no claim that every exercise is preserved or independently verified. |
+| Practice · authorised | Offensive-security practice on systems I own or guided platforms; no reports or exploit output are claimed. |
+| Training & results | Diploma module results; no claim that every exercise is preserved or independently verified. |
 
-As of 17 November 2026, the site has six entries: two running lab projects (Cipherline and the home SOC), the history of the gateway, router WireGuard remote access, a personal malware recovery case, and diploma training with lab practice. Planned labs are one "Next" line rather than entries.
+As of 21 November 2026, the site has eight entries, each labelled with its security domain: three running parts of the lab (Cipherline, the home SOC, and identity and access hardening), the offensive security lab, router WireGuard remote access, a personal malware recovery case, the history of the gateway, and diploma training. Planned labs are one "Next" line rather than entries.
 
 ## Projects to explore
 
 - **JAT Cipherline 2300:** A Proxmox home lab in Bangladesh, run remotely from Cardiff: multi-protocol VPN, Nextcloud, Vaultwarden, Pi-hole, a Kali VM and one master console. Built with AI-assisted engineering.
 - **Home SOC:** Wazuh with custom decoders, rules and a self-test; Splunk dashboards; Suricata IDS.
+- **Identity & access hardening:** TOTP and passkey sign-in, phone-confirmed lab controls, Tailscale-only administration and SSH keys limited to fixed jobs.
+- **Offensive security lab:** Kali Linux with a passed-through Wi-Fi card, Nmap, Wireshark, Metasploitable 2 and TryHackMe, on systems I own.
 - **JACG-2300:** a design concept for a safer gateway; never built. Its ideas were built in JAT Cipherline 2300.
 
-An **Experience** section lists work history: Trainee Manager at Popeyes (Cardiff, 2026), and earlier business development, marketing, IT and sales roles in Dhaka (2018–2026). An **Education & training** section lists the DIPTI diploma (in progress), TryHackMe intro rooms, DIPTI's AI Agent Builder Bootcamp and school certificates.
-- **Mark 2000:** Earlier self-hosted Ubuntu/Xray remote-access system.
+- **Mark 2000:** Earlier self-hosted Ubuntu proxy and VPN remote-access system.
 - **TP-Link GE230 WireGuard:** Router VPN troubleshooting and cross-network remote connectivity.
 - **Windows Trojan recovery:** Personal 2022 incident-response experience.
-- **Diploma training:** CCNA, Linux and ethical hacking module results, plus Kali, Nmap and Metasploitable practice.
+- **Diploma training:** CCNA, Linux and ethical hacking module results.
 
-Also here: `detections/` (the Wazuh decoders and rules and the router Mail Log receiver, with tests that run in GitHub Actions), `cv/` (a one-page CV), and a lab map drawn inline in the page. The VPN's protocols are deliberately not listed.
+An **Experience** section lists work history: Trainee Manager at Popeyes (Cardiff, 2026), and earlier business development, marketing, IT and sales roles in Dhaka (2018–2026). An **Education & training** section lists the DIPTI diploma (in progress), TryHackMe intro rooms, DIPTI's AI Agent Builder Bootcamp and school certificates.
+
+Also here: `detections/` (the Wazuh decoders and rules and the router Mail Log receiver, with tests that run in GitHub Actions), `cv/` (a two-page CV), and a lab map drawn inline in the page. The VPN's protocols are deliberately not listed.
 
 Original gateway scripts and a private handover archive are **not automatically safe to post publicly**. Review them for keys, endpoints and personal data before any repository publication.
 
@@ -83,6 +87,6 @@ Reference: https://developers.cloudflare.com/web-analytics/get-started/
 
 - GitHub: https://github.com/JubairAhammedTushar
 - LinkedIn: https://www.linkedin.com/in/jubair-ahammed-tushar
-- Email: jubairahmedtushar@gmail.com
+- Email: hello@jatushar.co.uk · hello@jubairahammedtushar.com · jubairahmedtushar@gmail.com (personal)
 
 This is an educational and personal portfolio, not a production-system status dashboard.

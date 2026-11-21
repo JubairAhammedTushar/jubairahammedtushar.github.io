@@ -1,10 +1,12 @@
 from html.parser import HTMLParser
+import hashlib
 from pathlib import Path
 import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = (ROOT / "index.html").read_text(encoding="utf-8")
+README = (ROOT / "README.md").read_text(encoding="utf-8")
 VOID = {"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
 class Document(HTMLParser):
@@ -63,12 +65,13 @@ class SiteTests(unittest.TestCase):
             self.assertIn(href_id, self.doc.ids, f"Missing destination #{href_id}")
 
     def test_projects_are_honestly_classified(self):
-        self.assertEqual(len(self.doc.projects), 6)
-        self.assertEqual(self.doc.projects.count("built"), 4)
+        self.assertEqual(len(self.doc.projects), 8)
+        self.assertEqual(self.doc.projects.count("built"), 5)
         self.assertEqual(self.doc.projects.count("history"), 1)
-        self.assertEqual(self.doc.projects.count("training"), 1)
+        self.assertEqual(self.doc.projects.count("training"), 2)
         numbers = re.findall(r'PROJECT / (\d\d)', SOURCE)
-        self.assertEqual(numbers, [f"{n:02d}" for n in range(1, 7)])
+        self.assertEqual(numbers, [f"{n:02d}" for n in range(1, 9)])
+        self.assertEqual(SOURCE.count('<p class="domain">'), 8)   # every card names its security domain
         self.assertIn("<b>Next:</b>", SOURCE)
         self.assertNotIn("data-filter", SOURCE)
 
@@ -92,9 +95,19 @@ class SiteTests(unittest.TestCase):
         self.assertTrue(pdf.is_file())
         self.assertTrue(pdf.read_bytes().startswith(b"%PDF"))
 
+    # Which VPN protocols the gateway runs stays private, so even this test does not name them:
+    # it compares word hashes (first 16 hex digits of SHA-256) instead.
+    HIDDEN_ANY_CASE = {"3ee9e81db1bcf90e", "361e620353d33dc7", "d7522a87ef41c1e3",
+                       "f12a0235f3707973", "50304fca6fc6b3bb", "1a46e6a68c37e8f9"}
+    HIDDEN_EXACT = {"54a88dc2544d5c26"}   # an ordinary English word, so only its all-capitals form
+
     def test_vpn_protocols_stay_private(self):
-        for name in ("AmneziaWG", "Hysteria", "VLESS", "VMess", "Shadowsocks", "REALITY", "Xray"):
-            self.assertNotIn(name, SOURCE)
+        def h(word):
+            return hashlib.sha256(word.encode()).hexdigest()[:16]
+        for text in (SOURCE, README):
+            for word in set(re.findall(r"[A-Za-z0-9]+", text)):
+                self.assertNotIn(h(word.lower()), self.HIDDEN_ANY_CASE, word)
+                self.assertNotIn(h(word), self.HIDDEN_EXACT, word)
 
     def test_running_lab_states_its_limits(self):
         self.assertIn("JAT Cipherline 2300", SOURCE)
@@ -116,6 +129,7 @@ class SiteTests(unittest.TestCase):
         self.assertEqual(self.doc.headings.count("h1"), 1)
         self.assertIn('class="skip"', SOURCE)
         self.assertIn('aria-live="polite"', SOURCE)
+        self.assertIn("document.querySelectorAll('.copy[data-mail]')", SOURCE)
         self.assertIn("prefers-reduced-motion:reduce", SOURCE)
         self.assertIn('name="viewport"', SOURCE)
         self.assertIn('aria-label="Main navigation"', SOURCE)
@@ -135,12 +149,25 @@ class SiteTests(unittest.TestCase):
         self.assertIn("if (!/^[a-f0-9]{32}$/i.test(token)) return;", loader)
         self.assertNotIn("googletagmanager.com", SOURCE)
 
+    def test_contact_lists_three_addresses(self):
+        mails = re.findall(r'data-mail="([^"]+)"', SOURCE)
+        self.assertEqual(mails, ["hello@jatushar.co.uk", "hello@jubairahammedtushar.com", "jubairahmedtushar@gmail.com"])   # UK address first
+        self.assertEqual(SOURCE.count('class="copy"'), 3)
+
     def test_no_known_sensitive_material(self):
-        for needle in ("-----BEGIN PRIVATE KEY-----", "-----BEGIN OPENSSH PRIVATE KEY-----",
-                       "REALITY_PRIVATE=", "wg-server.key", "192.168.0.18", "10.5.5.1",
-                       "192.168.0.", "100.64.", "ts.net", "console.jubairahammedtushar", "vault.jubairahammedtushar"):
-            self.assertNotIn(needle, SOURCE)
-        self.assertNotRegex(SOURCE, r"(?i)(password|private[_-]?key)\s*[:=]\s*['\"][^'\"]{8,}")
+        patterns = {
+            "private key": r"-----BEGIN [A-Z ]*PRIVATE KEY-----",
+            "secret assignment": r"(?i)(password|passwd|secret|token|private[_-]?key)\s*[:=]\s*['\"][^'\"]{8,}",
+            "private IPv4 address": r"\b(?:10\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])|192\.168)\.\d{1,3}\.\d{1,3}\b",
+            "CGNAT / Tailscale address": r"\b100\.(?:6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.\d{1,3}\.\d{1,3}\b",
+            "Tailscale hostname": r"\.ts\.net\b",
+            "private subdomain": r"\b(?!www\.)[a-z0-9-]+\.(?:jubairahammedtushar\.com|jatushar\.co\.uk)\b",
+            "UK phone number": r"(?:\+44\s?7\d{3}|\b07\d{3})\s?\d{3}\s?\d{3}\b",
+            "key file name": r"\b[\w-]+\.key\b",
+        }
+        for text, name in ((SOURCE, "index.html"), (README, "README.md")):
+            for label, pattern in patterns.items():
+                self.assertNotRegex(text, pattern, f"{label} in {name}")
 
 if __name__ == "__main__":
     unittest.main()
