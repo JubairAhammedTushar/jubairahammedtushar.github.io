@@ -92,6 +92,9 @@ class SiteTests(unittest.TestCase):
         self.assertIn('<figure class="lab-map">', SOURCE)
         self.assertIn('aria-labelledby="labmapTitle labmapDesc"', SOURCE)
         self.assertIn("tree/main/detections", SOURCE)
+        self.assertIn("github.com/JubairAhammedTushar/cipherline-lab", SOURCE)
+        self.assertIn("cipherline-lab/tree/main/detections", SOURCE)
+        self.assertIn("Cipherline code", SOURCE)
         for f in ("detections/README.md", "detections/wazuh/cipherline_rules.xml", "detections/wazuh/cipherline_decoders.xml",
                   "detections/router-mail/router-mail.py", "detections/router-mail/test-router-mail.py"):
             self.assertTrue((ROOT / f).is_file(), f)
