@@ -1,6 +1,6 @@
 # Jubair Ahammed Tushar — Cybersecurity portfolio
 
-**Website:** https://jubairahammedtushar.com/ (the old address, jubairahammedtushar.github.io, redirects there)
+**Website:** https://jatushar.co.uk/ and https://jubairahammedtushar.com/ (both reach the same site; the old address, jubairahammedtushar.github.io, redirects there too)
 
 A static GitHub Pages cybersecurity portfolio covering network security, security operations, identity and access, authorised ethical hacking and incident response, built around a self-hosted lab I run remotely.
 
